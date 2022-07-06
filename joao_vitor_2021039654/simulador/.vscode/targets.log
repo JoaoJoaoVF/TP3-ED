@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Jul  6 13:18:55 2022
+# Make data base, printed on Wed Jul  6 14:37:53 2022
 
 # Variables
 
@@ -33,7 +33,7 @@ EXE = $(BIN)/simulador.out
 # automatic
 @F = $(notdir $@)
 # makefile
-CURDIR := /home/jvf/simulador
+CURDIR := /home/jvf/joao_vitor_2021039654/TP3-ED/joao_vitor_2021039654/simulador
 # makefile
 SHELL = /bin/sh
 # makefile (from 'Makefile', line 16)
@@ -67,7 +67,7 @@ PATH = /home/jvf/.vscode-server/bin/30d9c6cd9483b2cc586687151bcbcd635f373630/bin
 # environment
 VSCODE_LOG_STACK = false
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-6af1915d-3b79-4d78-b9c0-467361f95da9.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-030fac8b-252e-4fa6-b408-70928ddbe4bd.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -77,7 +77,7 @@ LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
-PWD = /home/jvf/simulador
+PWD = /home/jvf/joao_vitor_2021039654/TP3-ED/joao_vitor_2021039654/simulador
 # default
 .LOADED := 
 # environment
@@ -322,7 +322,7 @@ obj//memlog.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp 
 # Not a target:
 bin//simulador.out:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-06 13:06:43.7140171
+#  Last modified 2022-07-06 14:30:02.86410156
 #  File has been updated.
 #  Successfully updated.
 
@@ -353,6 +353,6 @@ obj//Simulador.o: include//memlog.hpp include//msgassert.hpp include//Execucao.h
 # strcache performance: lookups = 62 / hit rate = 50%
 # hash-table stats:
 # Load=31/8192=0%, Rehash=0, Collisions=1/62=2%
-# Finished Make data base on Wed Jul  6 13:18:55 2022
+# Finished Make data base on Wed Jul  6 14:37:53 2022
 
  

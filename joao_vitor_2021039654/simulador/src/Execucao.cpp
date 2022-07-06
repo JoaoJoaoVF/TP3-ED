@@ -3,12 +3,15 @@
 void Executa(char *arquivo_entrada, char *arquivo_saida)
 {
     char Comando[10], aux[100];
-    int U, E, N;
+    int M, U, E, N;
     string MSG;
-
     cout << arquivo_entrada << endl;
 
     FILE *entrada = fopen(arquivo_entrada, "r");
+
+    fscanf(entrada, "%d", M);
+
+    cout << M << endl;
 
     while (!feof(entrada))
     {
