@@ -1,0 +1,12 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/jvf/joao_vitor_2021039654/TP3-ED/simulador'
+g++  -pg -Wall -c -I./include/  -o ./obj//Execucao.o src/Execucao.cpp 
+g++  -pg -Wall -c -I./include/  -o ./obj//Simulador.o src/Simulador.cpp 
+g++  -pg -Wall -c -I./include/  -o ./obj//main.o src/main.cpp 
+g++ -pg -Wall -c -I./include/  -o ./obj//memlog.o src/memlog.cpp
+g++ -g -o ./bin//simulador ./obj//Execucao.o ./obj//Simulador.o ./obj//main.o ./obj//memlog.o -lm 
+rm -f bin//simulador.out 
+cp bin//simulador bin//simulador.out
+./bin//simulador.out -i entrada.txt -o saida.txt
+make: Leaving directory '/home/jvf/joao_vitor_2021039654/TP3-ED/simulador'
+ 
