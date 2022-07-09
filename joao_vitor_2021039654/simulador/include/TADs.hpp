@@ -8,24 +8,29 @@
 #include <iostream>
 #include <iostream>
 #include <fstream>
-#include "memlog.hpp"
-#include "msgassert.hpp"
+#include "../include/memlog.hpp"
+#include "../include/msgassert.hpp"
 using namespace std;
 
-typedef string TipoChave; // TipoChave é um inteiro
+// typedef int TipoChave; // TipoChave é um inteiro
 
-class TipoItem
+class Mensagem
 {
 public:
-    TipoItem();
-    TipoItem(TipoChave c);
-    void SetChave(TipoChave c);
-    TipoChave GetChave();
-    void Imprime();
-    bool Vazio();
+    // Mensagem();
+    // Mensagem(int msg_id, string msg_conteudo);
+    // void SetId();
+    // void SetId(int msg_id);
+    // int GetId();
+    // void SetConteudo(string msg_conteudo);
+    // string GetConteudo();
+    // void Imprime();
+    // bool Vazio();
 
-    TipoChave chave;
+    // TipoChave chave;
     // outros membros
+    int id;
+    string conteudo;
 };
 
 class TipoNo
@@ -33,7 +38,8 @@ class TipoNo
 public:
     TipoNo();
 
-    TipoItem item;
+private:
+    Mensagem dados;
     TipoNo *esq;
     TipoNo *dir;
     friend class ArvoreBinaria;
@@ -43,17 +49,18 @@ class ArvoreBinaria
 {
 public:
     ArvoreBinaria();
-    ~ArvoreBinaria();
-    void Insere(TipoItem item);
+    // ~ArvoreBinaria();
+    void Insere(Mensagem dados);
     void Caminha(int tipo);
     void Limpa();
-    TipoItem Pesquisa(TipoChave chave);
-    void Remove(TipoChave chave);
+    Mensagem Pesquisa(int id);
+    void Remove(int id);
 
-    void InsereRecursivo(TipoNo *&p, TipoItem item);
+private:
+    void InsereRecursivo(TipoNo *&p, Mensagem dados);
     void ApagaRecursivo(TipoNo *p);
-    TipoItem PesquisaRecursivo(TipoNo *p, TipoChave chave);
-    void RemoveRecursivo(TipoNo *&p, TipoChave chave);
+    Mensagem PesquisaRecursivo(TipoNo *p, int id_procurado);
+    void RemoveRecursivo(TipoNo *&p, int id_procurado);
     void Antecessor(TipoNo *q, TipoNo *&r);
     void PorNivel();
     void PreOrdem(TipoNo *p);
@@ -66,23 +73,15 @@ class Hash_LE
 {
 public:
     Hash_LE();
-    TipoItem Pesquisa(TipoChave chave);
-    void Insere(TipoItem item);
-    void Remove(TipoChave chave);
+    Hash_LE(int M);
+    Mensagem Pesquisa(Mensagem dados);
+    void Insere(Mensagem dados);
+    void Remove(Mensagem dados);
 
-    static const int M = 7;
-    int Hash(string Chave);
+    // private:
+    static const int M = 50;
+    int Hash(int id);
     ArvoreBinaria Tabela[M];
-};
-
-class Mensagem
-{
-public:
-    Mensagem();
-    ~Mensagem();
-
-    string conteudo;
-    int id;
 };
 
 #endif

@@ -1,13 +1,16 @@
-#include "Execucao.hpp"
-#include "TADs.hpp"
+#include "../include/Execucao.hpp"
+#include "../include/TADs.hpp"
 
 void Executa(char *arquivo_entrada, char *arquivo_saida)
 {
     char Comando[10], aux[100];
     int M, U, E, N;
     string MSG;
-    Hash_LE server;
-    TipoItem dado;
+    Hash_LE *server;
+    Mensagem email;
+    // ArvoreBinaria arv;
+
+    // TipoItem dado;
     cout << arquivo_entrada << endl;
 
     FILE *entrada = fopen(arquivo_entrada, "r");
@@ -32,8 +35,16 @@ void Executa(char *arquivo_entrada, char *arquivo_saida)
                 MSG = MSG + aux + " ";
             }
             cout << MSG << endl;
+            // Entregar_email(server, email, U, MSG);
+            // email->SetConteudo(MSG);
+            // email.SetId(U % M);
+            // email->Imprime();
             // dado->SetChave(MSG);
-            server.Insere(MSG);
+            email.conteudo = MSG;
+            email.id = (U % M);
+            cout << email.id << " " << email.conteudo << endl;
+            // email.Imprime();
+            server->Insere(email);
         }
         else if (strcmp(Comando, "CONSULTA") == 0)
         {

@@ -1,33 +1,45 @@
-#include "TADs.hpp"
+#include "../include/TADs.hpp"
 
-TipoItem::TipoItem()
-{
-    chave = -1; // indica um item vazio
-}
+// Mensagem::Mensagem()
+// {
+// }
 
-TipoItem::TipoItem(TipoChave c)
-{
-    chave = c;
-}
+// Mensagem::Mensagem(int msg_id, string msg_conteudo)
+// {
+//     id = msg_id;
+//     conteudo = msg_conteudo;
+// }
 
-void TipoItem::SetChave(TipoChave c)
-{
-    chave = c;
-}
+// void Mensagem::SetId(int msg_id)
+// {
+//     id = msg_id;
+// }
 
-TipoChave TipoItem::GetChave()
-{
-    return chave;
-}
+// int Mensagem::id
+// {
+//     return id;
+// }
 
-void TipoItem::Imprime()
-{
-    printf("%d ", chave);
-}
+// void Mensagem::SetConteudo(string msg_conteudo)
+// {
+//     conteudo = msg_conteudo;
+// }
+
+// string Mensagem::GetConteudo()
+// {
+//     return conteudo;
+// }
+
+// void Mensagem::Imprime()
+// {
+//     // printf("%d ", chave);
+//     cout << id << " " << conteudo;
+// }
 
 TipoNo::TipoNo()
 {
-    item.SetChave(-1);
+    dados.id = -1;
+    dados.conteudo = nullptr;
     esq = NULL;
     dir = NULL;
 }
@@ -42,56 +54,57 @@ ArvoreBinaria::~ArvoreBinaria()
     Limpa();
 }
 
-void ArvoreBinaria::Insere(TipoItem item)
+void ArvoreBinaria::Insere(Mensagem dados)
 {
-    InsereRecursivo(raiz, item);
+    InsereRecursivo(raiz, dados);
 }
 
-void ArvoreBinaria::InsereRecursivo(TipoNo *&p, TipoItem item)
+void ArvoreBinaria::InsereRecursivo(TipoNo *&p, Mensagem dados)
 {
     if (p == NULL)
     {
         p = new TipoNo();
-        p->item = item;
+        // p->item = item;
+        p->dados = dados;
     }
     else
     {
-        if (item.GetChave() < p->item.GetChave())
-            InsereRecursivo(p->esq, item);
+        if (dados.id < p->dados.id)
+            InsereRecursivo(p->esq, dados);
         else
-            InsereRecursivo(p->dir, item);
+            InsereRecursivo(p->dir, dados);
     }
 }
 
-void ArvoreBinaria::PreOrdem(TipoNo *p)
-{
-    if (p != NULL)
-    {
-        p->item.Imprime();
-        PreOrdem(p->esq);
-        PreOrdem(p->dir);
-    }
-}
+// void ArvoreBinaria::PreOrdem(TipoNo *p)
+// {
+//     if (p != NULL)
+//     {
+//         p->dados.Imprime();
+//         PreOrdem(p->esq);
+//         PreOrdem(p->dir);
+//     }
+// }
 
-void ArvoreBinaria::InOrdem(TipoNo *p)
-{
-    if (p != NULL)
-    {
-        InOrdem(p->esq);
-        p->item.Imprime();
-        InOrdem(p->dir);
-    }
-}
+// void ArvoreBinaria::InOrdem(TipoNo *p)
+// {
+//     if (p != NULL)
+//     {
+//         InOrdem(p->esq);
+//         p->dados.Imprime();
+//         InOrdem(p->dir);
+//     }
+// }
 
-void ArvoreBinaria::PosOrdem(TipoNo *p)
-{
-    if (p != NULL)
-    {
-        PosOrdem(p->esq);
-        PosOrdem(p->dir);
-        p->item.Imprime();
-    }
-}
+// void ArvoreBinaria::PosOrdem(TipoNo *p)
+// {
+//     if (p != NULL)
+//     {
+//         PosOrdem(p->esq);
+//         PosOrdem(p->dir);
+//         p->dados.Imprime();
+//     }
+// }
 
 void ArvoreBinaria::Limpa()
 {
@@ -99,43 +112,44 @@ void ArvoreBinaria::Limpa()
     raiz = NULL;
 }
 
-TipoItem ArvoreBinaria::Pesquisa(TipoChave chave)
+Mensagem ArvoreBinaria::Pesquisa(int id)
 {
-    return PesquisaRecursivo(raiz, chave);
+    return PesquisaRecursivo(raiz, id);
 }
 
-void ArvoreBinaria::Remove(TipoChave chave)
+Mensagem ArvoreBinaria::PesquisaRecursivo(TipoNo *no, int id_procurado)
 {
-    return RemoveRecursivo(raiz, chave);
-}
-
-TipoItem ArvoreBinaria::PesquisaRecursivo(TipoNo *no, TipoChave chave)
-{
-    TipoItem aux;
+    Mensagem aux;
     if (no == NULL)
     {
-        aux.SetChave(-1); // Flag para item não presente
+        aux.id = -1; // Flag para item não presente
+        aux.conteudo = nullptr;
         return aux;
     }
-    if (chave < no->item.GetChave())
-        return PesquisaRecursivo(no->esq, chave);
-    else if (chave > no->item.GetChave())
-        return PesquisaRecursivo(no->dir, chave);
+    if (id_procurado < no->dados.id)
+        return PesquisaRecursivo(no->esq, id_procurado);
+    else if (id_procurado > no->dados.id)
+        return PesquisaRecursivo(no->dir, id_procurado);
     else
-        return no->item;
+        return no->dados;
 }
 
-void ArvoreBinaria::RemoveRecursivo(TipoNo *&no, TipoChave chave)
+void ArvoreBinaria::Remove(int id)
+{
+    return RemoveRecursivo(raiz, id);
+}
+
+void ArvoreBinaria::RemoveRecursivo(TipoNo *&no, int id_procurado)
 {
     TipoNo *aux;
     if (no == NULL)
     {
         throw("Item nao está presente");
     }
-    if (chave < no->item.GetChave())
-        return RemoveRecursivo(no->esq, chave);
-    else if (chave > no->item.GetChave())
-        return RemoveRecursivo(no->dir, chave);
+    if (id_procurado < no->dados.id)
+        return RemoveRecursivo(no->esq, id_procurado);
+    else if (id_procurado > no->dados.id)
+        return RemoveRecursivo(no->dir, id_procurado);
     else
     {
         if (no->dir == NULL)
@@ -172,47 +186,45 @@ void ArvoreBinaria::Antecessor(TipoNo *q, TipoNo *&r)
         Antecessor(q, r->dir);
         return;
     }
-    q->item = r->item;
+    q->dados = r->dados;
     q = r;
     r = r->esq;
     free(q);
 }
 
-TipoItem Hash_LE::Pesquisa(TipoChave chave)
+Hash_LE::Hash_LE(int M)
 {
-    int pos;
-    TipoItem item;
-    pos = Hash(chave);
-    item = Tabela[pos].Pesquisa(chave);
-    return item;
+    ArvoreBinaria *Tabela = new ArvoreBinaria[M];
 }
 
-void Hash_LE::Insere(string item)
+// Hash_LE::Hash_LE()
+// {
+//     Tabela->~ArvoreBinaria();
+// }
+
+Mensagem Hash_LE::Pesquisa(Mensagem dados)
 {
-    TipoItem aux;
     int pos;
-    aux = Pesquisa(item.GetChave());
-    if (!aux.Vazio())
+    Mensagem texto;
+    pos = Hash(dados.id);
+    texto = Tabela[pos].Pesquisa(dados.id);
+    return dados;
+}
+
+void Hash_LE::Insere(Mensagem dados)
+{
+    Mensagem aux;
+    int pos;
+    aux = Pesquisa(dados);
+    if (aux.id != -1)
         throw("Erro: Item já está presente");
-    pos = Hash(item.GetChave());
-    Tabela[pos].Insere(item);
+    pos = Hash(dados.id);
+    Tabela[pos].Insere(dados);
 }
 
-void Hash_LE::Remove(TipoChave chave)
+void Hash_LE::Remove(Mensagem dados)
 {
     int pos;
-    pos = Hash(chave);
-    Tabela[pos].Remove(chave);
-}
-
-Mensagem::Mensagem()
-{
-    // raiz = NULL;
-    conteudo = nullptr;
-    id = -1;
-}
-
-Mensagem::~Mensagem()
-{
-    Limpa();
+    pos = Hash(dados.id);
+    Tabela[pos].Remove(dados.id);
 }

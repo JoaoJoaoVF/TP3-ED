@@ -1,7 +1,8 @@
-#include "memlog.hpp"
-#include "msgassert.hpp"
-#include "Simulador.hpp"
-#include "Execucao.hpp"
+#include "../include/memlog.hpp"
+#include "../include/msgassert.hpp"
+#include "../include/Simulador.hpp"
+#include "../include/Execucao.hpp"
+#include "../include/TADs.hpp"
 
 using namespace std;
 

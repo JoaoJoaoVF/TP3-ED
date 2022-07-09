@@ -17,7 +17,7 @@ BIN = ./bin/
 SAIDA = ./saida/
 OBJS = $(OBJ)/Execucao.o $(OBJ)/Simulador.o $(OBJ)/main.o $(OBJ)/memlog.o
 HDRS = $(INC)/memlog.hpp $(INC)/msgassert.hpp $(INC)/Execucao.hpp $(INC)/Simulador.hpp
-CFLAGS = -pg -Wall -c -I$(INC) 
+CFLAGS = -pg -Wall -c -I$(INC) -std=c++11
 
 EXE = $(BIN)/simulador.out
 
