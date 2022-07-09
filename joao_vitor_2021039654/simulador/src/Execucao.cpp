@@ -6,7 +6,7 @@ void Executa(char *arquivo_entrada, char *arquivo_saida)
     char Comando[10], aux[100];
     int M, U, E, N;
     string MSG;
-    Hash_LE *server;
+    Hash_LE server;
     Mensagem email;
     // ArvoreBinaria arv;
 
@@ -40,11 +40,12 @@ void Executa(char *arquivo_entrada, char *arquivo_saida)
             // email.SetId(U % M);
             // email->Imprime();
             // dado->SetChave(MSG);
-            email.conteudo = MSG;
-            email.id = (U % M);
-            cout << email.id << " " << email.conteudo << endl;
             // email.Imprime();
-            server->Insere(email);
+            // email.conteudo = MSG;
+            // email.id = (U % M);
+            // cout << email.id << " " << email.conteudo << endl;
+
+            // server->Insere(email, M);
         }
         else if (strcmp(Comando, "CONSULTA") == 0)
         {

@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Jul  9 15:37:10 2022
+# Make data base, printed on Sat Jul  9 17:03:31 2022
 
 # Variables
 
@@ -31,9 +31,6 @@ EXE = $(BIN)/simulador.out
 # automatic
 @F = $(notdir $@)
 # makefile
- 
-make: *** No rule to make target 'bin//simulador.out', needed by 'use'.  Stop.
-
 CURDIR := /home/jvf/joao_vitor_2021039654/TP3-ED/joao_vitor_2021039654/simulador
 # makefile
 SHELL = /bin/sh
@@ -46,7 +43,7 @@ _ = /home/jvf/.vscode-server/bin/92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9/node
 # makefile (from 'Makefile', line 20)
 CFLAGS = -pg -Wall -c -I$(INC) -std=c++11
 # makefile (from 'Makefile', line 19)
-HDRS = $(INC)/memlog.hpp $(INC)/msgassert.hpp $(INC)/Execucao.hpp $(INC)/Simulador.hpp
+HDRS = $(INC)/memlog.hpp $(INC)/msgassert.hpp $(INC)/Execucao.hpp $(INC)/Simulador.hpp $(INC)/TADs.hpp 
 # makefile (from 'Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
 # 'override' directive
@@ -54,7 +51,7 @@ GNUMAKEFLAGS :=
 # environment
 XDG_DATA_DIRS = /usr/local/share:/usr/share:/var/lib/snapd/desktop
 # makefile (from 'Makefile', line 18)
-OBJS = $(OBJ)/Execucao.o $(OBJ)/Simulador.o $(OBJ)/main.o $(OBJ)/memlog.o
+OBJS = $(OBJ)/Execucao.o $(OBJ)/Simulador.o $(OBJ)/main.o $(OBJ)/memlog.o $(OBJ)/TADs.o
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
@@ -162,7 +159,7 @@ WSL_DISTRO_NAME = Ubuntu
 # makefile (from 'Makefile', line 17)
 SAIDA = ./saida/
 # variable set hash-table stats:
-# Load=74/1024=7%, Rehash=0, Collisions=15/135=11%
+# Load=74/1024=7%, Rehash=0, Collisions=17/148=11%
 
 # Pattern-specific Variable Values
 
@@ -180,7 +177,7 @@ SAIDA = ./saida/
 
 # Files
 
-obj//Execucao.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp include//Simulador.hpp src/Execucao.cpp
+obj//Execucao.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp include//Simulador.hpp include//TADs.hpp src/Execucao.cpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -193,7 +190,7 @@ all: use
 #  File does not exist.
 #  File has not been updated.
 
-obj//main.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp include//Simulador.hpp src/main.cpp
+obj//main.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp include//Simulador.hpp include//TADs.hpp src/main.cpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -203,7 +200,7 @@ obj//main.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp in
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-09 15:32:32.312915798
+#  Last modified 2022-07-09 17:03:22.63294581
 #  File has been updated.
 #  Successfully updated.
 
@@ -232,6 +229,18 @@ src/Simulador.cpp:
 #  File has not been updated.
 
 # Not a target:
+include//TADs.hpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/TADs.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 include//Execucao.hpp:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -243,7 +252,7 @@ src/Execucao.cpp:
 #  Modification time never checked.
 #  File has not been updated.
 
-bin//simulador: obj//Execucao.o obj//Simulador.o obj//main.o obj//memlog.o
+bin//simulador: obj//Execucao.o obj//Simulador.o obj//main.o obj//memlog.o obj//TADs.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -266,8 +275,11 @@ use: bin//simulador.out
 clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
+ 
+make: *** No rule to make target 'bin//simulador.out', needed by 'use'.  Stop.
+
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 45):
+#  recipe to execute (from 'Makefile', line 48):
 	rm -f $(EXE)* $(OBJS)* $(SAIDA)* $(BIN)* gmon.out
 	clear 
 
@@ -277,11 +289,11 @@ src/main.cpp:
 #  Modification time never checked.
 #  File has not been updated.
 
-obj//memlog.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp include//Simulador.hpp src/memlog.cpp
+obj//memlog.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp include//Simulador.hpp include//TADs.hpp src/memlog.cpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 42):
+#  recipe to execute (from 'Makefile', line 45):
 	$(CC) $(CFLAGS) -o $(OBJ)/memlog.o $(SRC)/memlog.cpp
 
 # Not a target:
@@ -296,28 +308,34 @@ include//msgassert.hpp:
 #  Modification time never checked.
 #  File has not been updated.
 
-obj//Simulador.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp include//Simulador.hpp src/Simulador.cpp
+obj//Simulador.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp include//Simulador.hpp include//TADs.hpp src/Simulador.cpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 39):
 	$(CC)  $(CFLAGS) -o $(OBJ)/Simulador.o $(SRC)/Simulador.cpp 
 
+obj//TADs.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp include//Simulador.hpp include//TADs.hpp src/TADs.cpp
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 42):
+	$(CC)  $(CFLAGS) -o $(OBJ)/TADs.o $(SRC)/TADs.cpp 
+
 # files hash-table stats:
-# Load=20/1024=2%, Rehash=0, Collisions=1/62=2%
+# Load=23/1024=2%, Rehash=0, Collisions=1/77=1%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
- 
-# strcache buffers: 1 (0) / strings = 33 / storage = 417 B / avg = 12 B
-# current buf: size = 8162 B / used = 417 B / count = 33 / avg = 12 B
+# strcache buffers: 1 (0) / strings = 36 / storage = 460 B / avg = 12 B
+# current buf: size = 8162 B / used = 460 B / count = 36 / avg = 12 B
 
-# strcache performance: lookups = 63 / hit rate = 47%
+# strcache performance: lookups = 76 / hit rate = 52%
 # hash-table stats:
-# Load=33/8192=0%, Rehash=0, Collisions=1/63=2%
-# Finished Make data base on Sat Jul  9 15:37:10 2022
+# Load=36/8192=0%, Rehash=0, Collisions=1/76=1%
+# Finished Make data base on Sat Jul  9 17:03:31 2022
 
  

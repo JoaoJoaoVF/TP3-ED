@@ -15,8 +15,8 @@ OBJ = ./obj/
 INC = ./include/
 BIN = ./bin/
 SAIDA = ./saida/
-OBJS = $(OBJ)/Execucao.o $(OBJ)/Simulador.o $(OBJ)/main.o $(OBJ)/memlog.o
-HDRS = $(INC)/memlog.hpp $(INC)/msgassert.hpp $(INC)/Execucao.hpp $(INC)/Simulador.hpp
+OBJS = $(OBJ)/Execucao.o $(OBJ)/Simulador.o $(OBJ)/main.o $(OBJ)/memlog.o $(OBJ)/TADs.o
+HDRS = $(INC)/memlog.hpp $(INC)/msgassert.hpp $(INC)/Execucao.hpp $(INC)/Simulador.hpp $(INC)/TADs.hpp 
 CFLAGS = -pg -Wall -c -I$(INC) -std=c++11
 
 EXE = $(BIN)/simulador.out
@@ -37,6 +37,9 @@ $(OBJ)/Execucao.o: $(HDRS) $(SRC)/Execucao.cpp
 
 $(OBJ)/Simulador.o: $(HDRS) $(SRC)/Simulador.cpp
 	$(CC)  $(CFLAGS) -o $(OBJ)/Simulador.o $(SRC)/Simulador.cpp 
+
+$(OBJ)/TADs.o: $(HDRS) $(SRC)/TADs.cpp
+	$(CC)  $(CFLAGS) -o $(OBJ)/TADs.o $(SRC)/TADs.cpp 
 
 $(OBJ)/memlog.o: $(HDRS) $(SRC)/memlog.cpp
 	$(CC) $(CFLAGS) -o $(OBJ)/memlog.o $(SRC)/memlog.cpp

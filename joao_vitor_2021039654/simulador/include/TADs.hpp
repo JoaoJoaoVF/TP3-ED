@@ -17,15 +17,15 @@ using namespace std;
 class Mensagem
 {
 public:
-    // Mensagem();
-    // Mensagem(int msg_id, string msg_conteudo);
-    // void SetId();
-    // void SetId(int msg_id);
-    // int GetId();
-    // void SetConteudo(string msg_conteudo);
-    // string GetConteudo();
-    // void Imprime();
-    // bool Vazio();
+    Mensagem();
+    Mensagem(int msg_id, string msg_conteudo);
+    void SetId();
+    void SetId(int msg_id);
+    int GetId();
+    void SetConteudo(string msg_conteudo);
+    string GetConteudo();
+    void Imprime();
+    bool Vazio();
 
     // TipoChave chave;
     // outros membros
@@ -49,7 +49,7 @@ class ArvoreBinaria
 {
 public:
     ArvoreBinaria();
-    // ~ArvoreBinaria();
+    ~ArvoreBinaria();
     void Insere(Mensagem dados);
     void Caminha(int tipo);
     void Limpa();
@@ -73,14 +73,13 @@ class Hash_LE
 {
 public:
     Hash_LE();
-    Hash_LE(int M);
-    Mensagem Pesquisa(Mensagem dados);
-    void Insere(Mensagem dados);
-    void Remove(Mensagem dados);
+    // Hash_LE(int M);
+    Mensagem Pesquisa(Mensagem dados, int M);
+    void Insere(Mensagem dados, int M);
+    void Remove(Mensagem dados, int M);
 
-    // private:
     static const int M = 50;
-    int Hash(int id);
+    int Hash(int id, int M);
     ArvoreBinaria Tabela[M];
 };
 

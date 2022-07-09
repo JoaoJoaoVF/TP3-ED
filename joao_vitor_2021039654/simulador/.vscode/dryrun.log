@@ -1,6 +1,6 @@
 make --dry-run --keep-going --print-directory
 make: Entering directory '/home/jvf/joao_vitor_2021039654/TP3-ED/joao_vitor_2021039654/simulador'
-g++ -g -o ./bin//simulador ./obj//Execucao.o ./obj//Simulador.o ./obj//main.o ./obj//memlog.o -lm 
+g++ -g -o ./bin//simulador ./obj//Execucao.o ./obj//Simulador.o ./obj//main.o ./obj//memlog.o ./obj//TADs.o -lm 
 rm -f bin//simulador.out 
 cp bin//simulador bin//simulador.out
 ./bin//simulador.out -i entrada.txt -o saida.txt
