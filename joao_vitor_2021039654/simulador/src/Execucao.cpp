@@ -6,18 +6,19 @@ void Executa(char *arquivo_entrada, char *arquivo_saida)
     char Comando[10], aux[100];
     int M, U, E, N;
     string MSG;
-    Hash_LE *server;
-    Mensagem *email;
-    // ArvoreBinaria arv;
 
-    // TipoItem dado;
-    cout << arquivo_entrada << endl;
+    // cout << arquivo_entrada << endl;
 
+    // Realiza a abertura do Arquivo de Entrada
     FILE *entrada = fopen(arquivo_entrada, "r");
 
     fscanf(entrada, "%d", &M);
 
-    cout << M << endl;
+    // cout << M << endl;
+
+    Hash_LE *server = new Hash_LE(M);
+
+    Mensagem email;
 
     while (!feof(entrada))
     {
@@ -25,42 +26,35 @@ void Executa(char *arquivo_entrada, char *arquivo_saida)
 
         if (strcmp(Comando, "ENTREGA") == 0)
         {
-            cout << Comando << endl;
+            // cout << Comando << endl;
             fscanf(entrada, "%d %d %d", &U, &E, &N);
-            cout << U << " " << E << " " << N << endl;
+            // cout << U << " " << E << " " << N << endl;
 
             for (int i = 0; i < N; i++)
             {
                 fscanf(entrada, "%s", aux);
                 MSG = MSG + aux + " ";
             }
-            cout << MSG << endl;
-            // Entregar_email(server, email, U, MSG);
-            // email->SetConteudo(MSG);
-            // email->SetId(U % M);
-            // email->Imprime();
-            // dado->SetChave(MSG);
-            // email.Imprime();
-            // email.conteudo = MSG;
-            // email.id = (U % M);
-            // cout << email.id << " " << email.conteudo << endl;
 
-            // server->Insere(email, M);
+            Entregar_email(server, email, U, MSG, M, E);
         }
+
         else if (strcmp(Comando, "CONSULTA") == 0)
         {
-            cout << Comando << endl;
+            // cout << Comando << endl;
             fscanf(entrada, "%d %d", &U, &E);
-            cout << U << " " << E << endl;
+            // cout << U << " " << E << endl;
+
+            Consultar_email(server, U, M, E);
         }
         else if (strcmp(Comando, "APAGA") == 0)
         {
-            cout << Comando << endl;
+            // cout << Comando << endl;
             fscanf(entrada, "%d %d", &U, &E);
-            cout << U << " " << E << endl;
+            // cout << U << " " << E << endl;
         }
     }
 
-    cout << arquivo_saida << endl;
+    // cout << arquivo_saida << endl;
     fclose(entrada);
 }

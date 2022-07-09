@@ -2,29 +2,38 @@
 
 Mensagem::Mensagem()
 {
-    id = -1; // indica um item vazio
-    conteudo = nullptr;
+    id_mensagem = -1; // indica um item vazio
+    conteudo = " ";
 }
 
-Mensagem::Mensagem(int msg_id, string msg_conteudo)
+Mensagem::Mensagem(int id_mensagem, string msg_conteudo)
 {
-    id = msg_id;
+    id_mensagem = id_mensagem;
     conteudo = msg_conteudo;
 }
 
-void Mensagem::SetId(int msg_id)
+void Mensagem::SetIdMensagem(int _id_mensagem)
 {
-    id = msg_id;
+    id_mensagem = _id_mensagem;
 }
 
-int Mensagem::GetId()
+int Mensagem::GetIdMensagem()
 {
-    return id;
+    return id_mensagem;
+}
+void Mensagem::SetIdDestinatario(int _id_destinatario)
+{
+    id_destinatario = _id_destinatario;
 }
 
-void Mensagem::SetConteudo(string msg_conteudo)
+int Mensagem::GetIdDestinatario()
 {
-    conteudo = msg_conteudo;
+    return id_destinatario;
+}
+
+void Mensagem::SetConteudo(string _msg_conteudo)
+{
+    conteudo = _msg_conteudo;
 }
 
 string Mensagem::GetConteudo()
@@ -34,7 +43,7 @@ string Mensagem::GetConteudo()
 
 bool Mensagem::Vazio()
 {
-    if (conteudo.empty() && id == -1)
+    if (conteudo.empty() && id_mensagem == -1)
     {
         return true;
     }
@@ -44,14 +53,12 @@ bool Mensagem::Vazio()
 
 void Mensagem::Imprime()
 {
-    // printf("%d ", chave);
-    cout << id << " " << conteudo;
+    cout << id_mensagem << " " << conteudo << endl;
 }
 
 TipoNo::TipoNo()
 {
-    dados.SetId(-1);
-    dados.SetConteudo(nullptr);
+    dados.SetIdMensagem(-1);
     esq = NULL;
     dir = NULL;
 }
@@ -81,7 +88,7 @@ void ArvoreBinaria::InsereRecursivo(TipoNo *&p, Mensagem dados)
     }
     else
     {
-        if (dados.GetId() < p->dados.GetId())
+        if (dados.GetIdMensagem() < p->dados.GetIdMensagem())
             InsereRecursivo(p->esq, dados);
         else
             InsereRecursivo(p->dir, dados);
@@ -124,44 +131,43 @@ void ArvoreBinaria::Limpa()
     raiz = NULL;
 }
 
-Mensagem ArvoreBinaria::Pesquisa(int id)
+Mensagem ArvoreBinaria::Pesquisa(int id_mensagem)
 {
-    return PesquisaRecursivo(raiz, id);
+    return PesquisaRecursivo(raiz, id_mensagem);
 }
 
-Mensagem ArvoreBinaria::PesquisaRecursivo(TipoNo *no, int id_procurado)
+Mensagem ArvoreBinaria::PesquisaRecursivo(TipoNo *no, int id_mensagem)
 {
     Mensagem aux;
     if (no == NULL)
     {
-        aux.SetId(-1); // Flag para item não presente
-        aux.SetConteudo(nullptr);
+        aux.SetIdMensagem(-1); // Flag para item não presente
         return aux;
     }
-    if (id_procurado < no->dados.GetId())
-        return PesquisaRecursivo(no->esq, id_procurado);
-    else if (id_procurado > no->dados.GetId())
-        return PesquisaRecursivo(no->dir, id_procurado);
+    if (id_mensagem < no->dados.GetIdMensagem())
+        return PesquisaRecursivo(no->esq, id_mensagem);
+    else if (id_mensagem > no->dados.GetIdMensagem())
+        return PesquisaRecursivo(no->dir, id_mensagem);
     else
         return no->dados;
 }
 
-void ArvoreBinaria::Remove(int id)
+void ArvoreBinaria::Remove(int id_mensagem)
 {
-    return RemoveRecursivo(raiz, id);
+    return RemoveRecursivo(raiz, id_mensagem);
 }
 
-void ArvoreBinaria::RemoveRecursivo(TipoNo *&no, int id_procurado)
+void ArvoreBinaria::RemoveRecursivo(TipoNo *&no, int id_mensagem)
 {
     TipoNo *aux;
     if (no == NULL)
     {
-        throw("Item nao está presente");
+        throw("ERRO: MENSAGEM INEXISTENTE\n ");
     }
-    if (id_procurado < no->dados.GetId())
-        return RemoveRecursivo(no->esq, id_procurado);
-    else if (id_procurado > no->dados.GetId())
-        return RemoveRecursivo(no->dir, id_procurado);
+    if (id_mensagem < no->dados.GetIdMensagem())
+        return RemoveRecursivo(no->esq, id_mensagem);
+    else if (id_mensagem > no->dados.GetIdMensagem())
+        return RemoveRecursivo(no->dir, id_mensagem);
     else
     {
         if (no->dir == NULL)
@@ -178,6 +184,8 @@ void ArvoreBinaria::RemoveRecursivo(TipoNo *&no, int id_procurado)
         }
         else
             Antecessor(no, no->esq);
+
+        cout << "OK: MENSAGEM APAGADA" << endl;
     }
 }
 
@@ -204,22 +212,23 @@ void ArvoreBinaria::Antecessor(TipoNo *q, TipoNo *&r)
     free(q);
 }
 
-Hash_LE::Hash_LE()
+Hash_LE::Hash_LE(int M)
 {
-    // ArvoreBinaria();
+    this->Tabela = new ArvoreBinaria[M];
 }
 
-int Hash_LE::Hash(int id, int M)
+int Hash_LE::Hash(int id_mensagem, int M)
 {
-    return id % M;
+    return id_mensagem % M;
 }
 
 Mensagem Hash_LE::Pesquisa(Mensagem dados, int M)
 {
     int pos;
     Mensagem texto;
-    pos = Hash(dados.GetId(), M);
-    texto = Tabela[pos].Pesquisa(dados.GetId());
+    pos = Hash(dados.GetIdDestinatario(), M);
+    texto = Tabela[pos].Pesquisa(dados.GetIdMensagem());
+    // cout << dados.GetConteudo() << endl;
     return dados;
 }
 
@@ -228,15 +237,14 @@ void Hash_LE::Insere(Mensagem dados, int M)
     Mensagem aux;
     int pos;
     aux = Pesquisa(dados, M);
-    if (aux.Vazio() == true)
-        throw("Erro: Item já está presente");
-    pos = Hash(dados.GetId(), M);
+    pos = Hash(dados.GetIdDestinatario(), M);
     Tabela[pos].Insere(dados);
+    cout << "OK: MENSAGEM " << dados.GetIdMensagem() << " PARA " << dados.GetIdDestinatario() << " ARMAZENADA EM " << pos << endl;
 }
 
 void Hash_LE::Remove(Mensagem dados, int M)
 {
     int pos;
-    pos = Hash(dados.GetId(), M);
-    Tabela[pos].Remove(dados.GetId());
+    pos = Hash(dados.GetIdDestinatario(), M);
+    Tabela[pos].Remove(dados.GetIdMensagem());
 }

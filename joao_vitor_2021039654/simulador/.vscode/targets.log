@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Jul  9 17:03:31 2022
+# Make data base, printed on Sat Jul  9 19:10:35 2022
 
 # Variables
 
@@ -19,6 +19,7 @@ WSLENV = VSCODE_WSL_EXT_LOCATION/up
 # default
 .SHELLFLAGS := -c
 # makefile (from 'Makefile', line 14)
+ 
 OBJ = ./obj/
 # makefile (from 'Makefile', line 13)
 SRC = src
@@ -83,6 +84,7 @@ HOME = /home/jvf
 # environment
 LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
+ 
 LOGNAME = jvf
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
@@ -159,7 +161,7 @@ WSL_DISTRO_NAME = Ubuntu
 # makefile (from 'Makefile', line 17)
 SAIDA = ./saida/
 # variable set hash-table stats:
-# Load=74/1024=7%, Rehash=0, Collisions=17/148=11%
+# Load=74/1024=7%, Rehash=0, Collisions=17/153=11%
 
 # Pattern-specific Variable Values
 
@@ -188,7 +190,10 @@ all: use
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
-#  File has not been updated.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
 
 obj//main.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp include//Simulador.hpp include//TADs.hpp src/main.cpp
 #  Implicit rule search has not been done.
@@ -198,9 +203,15 @@ obj//main.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp in
 	$(CC)  $(CFLAGS) -o $(OBJ)/main.o $(SRC)/main.cpp 
 
 # Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-09 17:03:22.63294581
+#  Last modified 2022-07-09 19:10:14.347792336
 #  File has been updated.
 #  Successfully updated.
 
@@ -267,17 +278,34 @@ bin//simulador: obj//Execucao.o obj//Simulador.o obj//main.o obj//memlog.o obj//
 
 use: bin//simulador.out
 #  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
 #  File does not exist.
-#  File has not been updated.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := use
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := bin//simulador.out
+# automatic
+# | := 
+# automatic
+# < := bin//simulador.out
+# automatic
+# ^ := bin//simulador.out
+# automatic
+# ? := bin//simulador.out
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=2/13=15%
 #  recipe to execute (from 'Makefile', line 27):
 	$(EXE) -i entrada.txt -o saida.txt
 
 clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
- 
-make: *** No rule to make target 'bin//simulador.out', needed by 'use'.  Stop.
-
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 48):
 	rm -f $(EXE)* $(OBJS)* $(SAIDA)* $(BIN)* gmon.out
@@ -299,8 +327,9 @@ obj//memlog.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp 
 # Not a target:
 bin//simulador.out:
 #  Implicit rule search has been done.
-#  File does not exist.
-#  File has not been updated.
+#  Last modified 2022-07-09 19:09:38.437792138
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 include//msgassert.hpp:
@@ -323,7 +352,7 @@ obj//TADs.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp in
 	$(CC)  $(CFLAGS) -o $(OBJ)/TADs.o $(SRC)/TADs.cpp 
 
 # files hash-table stats:
-# Load=23/1024=2%, Rehash=0, Collisions=1/77=1%
+# Load=23/1024=2%, Rehash=0, Collisions=1/78=1%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
@@ -333,9 +362,9 @@ obj//TADs.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp in
 # strcache buffers: 1 (0) / strings = 36 / storage = 460 B / avg = 12 B
 # current buf: size = 8162 B / used = 460 B / count = 36 / avg = 12 B
 
-# strcache performance: lookups = 76 / hit rate = 52%
+# strcache performance: lookups = 77 / hit rate = 53%
 # hash-table stats:
-# Load=36/8192=0%, Rehash=0, Collisions=1/76=1%
-# Finished Make data base on Sat Jul  9 17:03:31 2022
+# Load=36/8192=0%, Rehash=0, Collisions=1/77=1%
+# Finished Make data base on Sat Jul  9 19:10:35 2022
 
  
