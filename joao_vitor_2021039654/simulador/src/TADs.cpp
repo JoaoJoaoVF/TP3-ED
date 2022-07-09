@@ -206,13 +206,8 @@ void ArvoreBinaria::Antecessor(TipoNo *q, TipoNo *&r)
 
 Hash_LE::Hash_LE()
 {
-    ArvoreBinaria();
+    // ArvoreBinaria();
 }
-
-// Hash_LE::Hash_LE()
-// {
-//     Tabela->~ArvoreBinaria();
-// }
 
 int Hash_LE::Hash(int id, int M)
 {

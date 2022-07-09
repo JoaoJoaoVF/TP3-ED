@@ -6,8 +6,8 @@ void Executa(char *arquivo_entrada, char *arquivo_saida)
     char Comando[10], aux[100];
     int M, U, E, N;
     string MSG;
-    Hash_LE server;
-    Mensagem email;
+    Hash_LE *server;
+    Mensagem *email;
     // ArvoreBinaria arv;
 
     // TipoItem dado;
@@ -37,7 +37,7 @@ void Executa(char *arquivo_entrada, char *arquivo_saida)
             cout << MSG << endl;
             // Entregar_email(server, email, U, MSG);
             // email->SetConteudo(MSG);
-            // email.SetId(U % M);
+            // email->SetId(U % M);
             // email->Imprime();
             // dado->SetChave(MSG);
             // email.Imprime();
