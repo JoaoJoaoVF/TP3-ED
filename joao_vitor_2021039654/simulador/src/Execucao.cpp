@@ -1,15 +1,18 @@
 #include "Execucao.hpp"
+#include "TADs.hpp"
 
 void Executa(char *arquivo_entrada, char *arquivo_saida)
 {
     char Comando[10], aux[100];
     int M, U, E, N;
     string MSG;
+    Hash_LE server;
+    TipoItem dado;
     cout << arquivo_entrada << endl;
 
     FILE *entrada = fopen(arquivo_entrada, "r");
 
-    fscanf(entrada, "%d", M);
+    fscanf(entrada, "%d", &M);
 
     cout << M << endl;
 
@@ -29,6 +32,8 @@ void Executa(char *arquivo_entrada, char *arquivo_saida)
                 MSG = MSG + aux + " ";
             }
             cout << MSG << endl;
+            // dado->SetChave(MSG);
+            server.Insere(MSG);
         }
         else if (strcmp(Comando, "CONSULTA") == 0)
         {

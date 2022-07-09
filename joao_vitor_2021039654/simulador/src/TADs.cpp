@@ -187,7 +187,7 @@ TipoItem Hash_LE::Pesquisa(TipoChave chave)
     return item;
 }
 
-void Hash_LE::Insere(TipoItem item)
+void Hash_LE::Insere(string item)
 {
     TipoItem aux;
     int pos;
@@ -203,4 +203,16 @@ void Hash_LE::Remove(TipoChave chave)
     int pos;
     pos = Hash(chave);
     Tabela[pos].Remove(chave);
+}
+
+Mensagem::Mensagem()
+{
+    // raiz = NULL;
+    conteudo = nullptr;
+    id = -1;
+}
+
+Mensagem::~Mensagem()
+{
+    Limpa();
 }

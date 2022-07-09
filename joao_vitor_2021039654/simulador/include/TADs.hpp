@@ -12,7 +12,7 @@
 #include "msgassert.hpp"
 using namespace std;
 
-typedef int TipoChave; // TipoChave é um inteiro
+typedef string TipoChave; // TipoChave é um inteiro
 
 class TipoItem
 {
@@ -24,7 +24,6 @@ public:
     void Imprime();
     bool Vazio();
 
-private:
     TipoChave chave;
     // outros membros
 };
@@ -34,7 +33,6 @@ class TipoNo
 public:
     TipoNo();
 
-private:
     TipoItem item;
     TipoNo *esq;
     TipoNo *dir;
@@ -52,7 +50,6 @@ public:
     TipoItem Pesquisa(TipoChave chave);
     void Remove(TipoChave chave);
 
-private:
     void InsereRecursivo(TipoNo *&p, TipoItem item);
     void ApagaRecursivo(TipoNo *p);
     TipoItem PesquisaRecursivo(TipoNo *p, TipoChave chave);
@@ -73,10 +70,19 @@ public:
     void Insere(TipoItem item);
     void Remove(TipoChave chave);
 
-private:
     static const int M = 7;
-    int Hash(TipoChave Chave);
+    int Hash(string Chave);
     ArvoreBinaria Tabela[M];
+};
+
+class Mensagem
+{
+public:
+    Mensagem();
+    ~Mensagem();
+
+    string conteudo;
+    int id;
 };
 
 #endif

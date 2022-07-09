@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Jul  6 14:37:53 2022
+# Make data base, printed on Sat Jul  9 13:39:54 2022
 
 # Variables
 
@@ -22,8 +22,6 @@ WSLENV = VSCODE_WSL_EXT_LOCATION/up
 OBJ = ./obj/
 # makefile (from 'Makefile', line 13)
 SRC = src
-# environment
-VSCODE_LOG_NATIVE = false
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
@@ -39,9 +37,9 @@ SHELL = /bin/sh
 # makefile (from 'Makefile', line 16)
 BIN = ./bin/
 # environment
-VSCODE_NLS_CONFIG = {"locale":"pt-br","availableLanguages":{"*":"pt-br"},"_languagePackId":"195456cb6bc5e7dd989215cd334fb359.pt-br","_translationsConfigFile":"/home/jvf/.vscode-server/data/clp/195456cb6bc5e7dd989215cd334fb359.pt-br/tcf.json","_cacheRoot":"/home/jvf/.vscode-server/data/clp/195456cb6bc5e7dd989215cd334fb359.pt-br","_resolvedLanguagePackCoreLocation":"/home/jvf/.vscode-server/data/clp/195456cb6bc5e7dd989215cd334fb359.pt-br/30d9c6cd9483b2cc586687151bcbcd635f373630","_corruptedFile":"/home/jvf/.vscode-server/data/clp/195456cb6bc5e7dd989215cd334fb359.pt-br/corrupted.info","_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"pt-br","availableLanguages":{"*":"pt-br"},"_languagePackId":"586ada59ea240d9b175b3ea817e73e56.pt-br","_translationsConfigFile":"/home/jvf/.vscode-server/data/clp/586ada59ea240d9b175b3ea817e73e56.pt-br/tcf.json","_cacheRoot":"/home/jvf/.vscode-server/data/clp/586ada59ea240d9b175b3ea817e73e56.pt-br","_resolvedLanguagePackCoreLocation":"/home/jvf/.vscode-server/data/clp/586ada59ea240d9b175b3ea817e73e56.pt-br/92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9","_corruptedFile":"/home/jvf/.vscode-server/data/clp/586ada59ea240d9b175b3ea817e73e56.pt-br/corrupted.info","_languagePackSupport":true}
 # environment
-_ = /home/jvf/.vscode-server/bin/30d9c6cd9483b2cc586687151bcbcd635f373630/node
+_ = /home/jvf/.vscode-server/bin/92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9/node
 # makefile (from 'Makefile', line 20)
 CFLAGS = -pg -Wall -c -I$(INC) 
 # makefile (from 'Makefile', line 19)
@@ -52,8 +50,6 @@ MAKEFILE_LIST :=  Makefile
 GNUMAKEFLAGS := 
 # environment
 XDG_DATA_DIRS = /usr/local/share:/usr/share:/var/lib/snapd/desktop
-# environment
-VSCODE_VERBOSE_LOGGING = true
 # makefile (from 'Makefile', line 18)
 OBJS = $(OBJ)/Execucao.o $(OBJ)/Simulador.o $(OBJ)/main.o $(OBJ)/memlog.o
 # environment
@@ -63,11 +59,11 @@ VSCODE_CWD = /mnt/c/Users/João Vitor Ferreira/AppData/Local/Programs/Microsoft 
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /home/jvf/.vscode-server/bin/30d9c6cd9483b2cc586687151bcbcd635f373630/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/MinGW/bin:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/PostgreSQL/14/bin:/mnt/c/Program Files/PostgreSQL/14/lib:/mnt/c/Users/João Vitor Ferreira/AppData/Local/Programs/Python/Python310/Scripts/:/mnt/c/Users/João Vitor Ferreira/AppData/Local/Programs/Python/Python310/:/mnt/c/Users/João Vitor Ferreira/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/João Vitor Ferreira/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/João Vitor Ferreira/AppData/Local/GitHubDesktop/bin:/snap/bin
+PATH = /home/jvf/.vscode-server/bin/92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/MinGW/bin:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/PostgreSQL/14/bin:/mnt/c/Program Files/PostgreSQL/14/lib:/mnt/c/Users/João Vitor Ferreira/AppData/Local/Programs/Python/Python310/Scripts/:/mnt/c/Users/João Vitor Ferreira/AppData/Local/Programs/Python/Python310/:/mnt/c/Users/João Vitor Ferreira/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/João Vitor Ferreira/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/João Vitor Ferreira/AppData/Local/GitHubDesktop/bin:/snap/bin
 # environment
-VSCODE_LOG_STACK = false
+ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-030fac8b-252e-4fa6-b408-70928ddbe4bd.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-757b0d7a-29cf-4931-b222-0f6be81258f4.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -75,13 +71,11 @@ LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:
 # automatic
 %F = $(notdir $%)
 # environment
-VSCODE_PIPE_LOGGING = true
-# environment
 PWD = /home/jvf/joao_vitor_2021039654/TP3-ED/joao_vitor_2021039654/simulador
 # default
 .LOADED := 
 # environment
-WSL_INTEROP = /run/WSL/14926_interop
+WSL_INTEROP = /run/WSL/221_interop
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -161,13 +155,11 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_EXTHOST_WILL_SEND_SOCKET = true
-# environment
 WSL_DISTRO_NAME = Ubuntu
 # makefile (from 'Makefile', line 17)
 SAIDA = ./saida/
 # variable set hash-table stats:
-# Load=78/1024=8%, Rehash=0, Collisions=15/144=10%
+# Load=74/1024=7%, Rehash=0, Collisions=15/140=11%
 
 # Pattern-specific Variable Values
 
@@ -175,9 +167,9 @@ SAIDA = ./saida/
 
 # Directories
 
-# . (device 2064, inode 116867): 10 files, no impossibilities.
+# . (device 2064, inode 116867): 12 files, no impossibilities.
 
-# 10 files, no impossibilities in 1 directories.
+# 12 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -274,7 +266,6 @@ use: bin//simulador.out
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: ''
 #  File does not exist.
- 
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # automatic
@@ -285,6 +276,7 @@ use: bin//simulador.out
 # * := 
 # automatic
 # + := bin//simulador.out
+ 
 # automatic
 # | := 
 # automatic
@@ -347,12 +339,12 @@ obj//Simulador.o: include//memlog.hpp include//msgassert.hpp include//Execucao.h
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 31 / storage = 373 B / avg = 12 B
-# current buf: size = 8162 B / used = 373 B / count = 31 / avg = 12 B
+# strcache buffers: 1 (0) / strings = 33 / storage = 417 B / avg = 12 B
+# current buf: size = 8162 B / used = 417 B / count = 33 / avg = 12 B
 
-# strcache performance: lookups = 62 / hit rate = 50%
+# strcache performance: lookups = 64 / hit rate = 48%
 # hash-table stats:
-# Load=31/8192=0%, Rehash=0, Collisions=1/62=2%
-# Finished Make data base on Wed Jul  6 14:37:53 2022
+# Load=33/8192=0%, Rehash=0, Collisions=1/64=2%
+# Finished Make data base on Sat Jul  9 13:39:54 2022
 
  
