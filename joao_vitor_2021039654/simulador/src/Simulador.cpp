@@ -22,7 +22,7 @@ void Consultar_email(Hash_LE *server, Mensagem dados, int U, int M, int E)
     dados.SetIdDestinatario(U);
 
     resposta = server->Pesquisa(dados, M);
-    cout << resposta.id_mensagem << endl;
+    // cout << resposta.id_mensagem << endl;
 
     if (resposta.id_mensagem == -1)
     {
