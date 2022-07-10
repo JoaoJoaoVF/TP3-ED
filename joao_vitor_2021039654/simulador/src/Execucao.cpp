@@ -5,7 +5,6 @@ void Executa(char *arquivo_entrada, char *arquivo_saida)
 {
     char Comando[10], aux[100];
     int M, U, E, N;
-    string MSG;
 
     // cout << arquivo_entrada << endl;
 
@@ -26,6 +25,7 @@ void Executa(char *arquivo_entrada, char *arquivo_saida)
 
         if (strcmp(Comando, "ENTREGA") == 0)
         {
+            string MSG;
             // cout << Comando << endl;
             fscanf(entrada, "%d %d %d", &U, &E, &N);
             // cout << U << " " << E << " " << N << endl;
@@ -35,7 +35,7 @@ void Executa(char *arquivo_entrada, char *arquivo_saida)
                 fscanf(entrada, "%s", aux);
                 MSG = MSG + aux + " ";
             }
-
+            // cout << MSG << endl;
             Entregar_email(server, email, U, MSG, M, E);
         }
 

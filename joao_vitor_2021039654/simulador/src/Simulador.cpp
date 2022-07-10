@@ -21,17 +21,8 @@ void Consultar_email(Hash_LE *server, Mensagem dados, int U, int M, int E)
     dados.SetIdMensagem(E);
     dados.SetIdDestinatario(U);
 
-    resposta = server->Pesquisa(dados, M);
+    resposta = server->Pesquisa(dados, M, 1);
     // cout << resposta.id_mensagem << endl;
-
-    if (resposta.id_mensagem == -1)
-    {
-        cout << "CONSULTA " << resposta.GetIdDestinatario() << "  " << resposta.GetIdMensagem() << ": MENSAGEM INEXISTENTE " << endl;
-    }
-    else
-    {
-        cout << "CONSULTA " << resposta.GetIdDestinatario() << " " << resposta.GetIdMensagem() << ": " << resposta.conteudo << endl;
-    }
 }
 
 void Apagar_email(Hash_LE *server, int U, int M, int E)

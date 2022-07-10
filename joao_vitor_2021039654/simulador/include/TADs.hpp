@@ -69,7 +69,7 @@ class Hash_LE
 public:
     Hash_LE(int M);
     // Hash_LE(int M);
-    Mensagem Pesquisa(Mensagem dados, int M);
+    Mensagem Pesquisa(Mensagem dados, int M, int Tipo);
     void Insere(Mensagem dados, int M);
     void Remove(Mensagem dados, int M);
 
