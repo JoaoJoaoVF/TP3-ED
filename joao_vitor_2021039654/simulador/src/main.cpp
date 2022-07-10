@@ -68,7 +68,6 @@ int main(int argc, char **argv)
     // Inicia o memlog
     char nome[30] = "./bin/simulador_log.out";
     iniciaMemLog(nome);
-    // ativaMemLog();
 
     // ativar ou nao o registro de acesso
     if (regmem == 1)

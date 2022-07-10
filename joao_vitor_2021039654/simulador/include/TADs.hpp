@@ -29,8 +29,6 @@ public:
     int GetIdDestinatario();
     void SetConteudo(string _msg_conteudo);
     string GetConteudo();
-    void Imprime();
-    bool Vazio();
 
     int id_mensagem;
     int id_destinatario;
@@ -57,7 +55,6 @@ public:
     ArvoreBinaria();
     ~ArvoreBinaria();
     void Insere(Mensagem email);
-    void Caminha(int tipo);
     void Limpa();
     Mensagem Pesquisa(Mensagem email);
     void Remove(Mensagem email);

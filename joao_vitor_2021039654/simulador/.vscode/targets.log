@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'bin//simulador.out', needed by 'use'.  Stop.
+
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Jul 10 12:30:03 2022
+# Make data base, printed on Sun Jul 10 13:18:56 2022
 
 # Variables
 
@@ -71,6 +73,7 @@ LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:
 # automatic
 %F = $(notdir $%)
 # environment
+ 
 PWD = /home/jvf/joao_vitor_2021039654/TP3-ED/joao_vitor_2021039654/simulador
 # default
 .LOADED := 
@@ -136,6 +139,7 @@ VSCODE_HANDLES_SIGPIPE = true
 MAKEFILES := 
 # automatic
 <F = $(notdir $<)
+ 
 # environment
 LC_ALL = C
 # environment
@@ -159,7 +163,7 @@ WSL_DISTRO_NAME = Ubuntu
 # makefile (from 'Makefile', line 16)
 SAIDA = ./saidas/
 # variable set hash-table stats:
-# Load=74/1024=7%, Rehash=0, Collisions=17/153=11%
+# Load=74/1024=7%, Rehash=0, Collisions=17/148=11%
 
 # Pattern-specific Variable Values
 
@@ -188,10 +192,7 @@ all: use
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
+#  File has not been updated.
 
 obj//main.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp include//Simulador.hpp include//TADs.hpp src/main.cpp
 #  Implicit rule search has not been done.
@@ -201,15 +202,9 @@ obj//main.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp in
 	$(CC)  $(CFLAGS) -o $(OBJ)/main.o $(SRC)/main.cpp 
 
 # Not a target:
-.SUFFIXES:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-10 12:29:53.179726012
+#  Last modified 2022-07-10 13:18:47.639742171
 #  File has been updated.
 #  Successfully updated.
 
@@ -274,33 +269,18 @@ bin//simulador: obj//Execucao.o obj//Simulador.o obj//main.o obj//memlog.o obj//
 #  Modification time never checked.
 #  File has not been updated.
 
- 
 use: bin//simulador.out
 #  Implicit rule search has not been done.
-#  Implicit/static pattern stem: ''
 #  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := use
-# automatic
-# % := 
-# automatic
-# * := 
-# automatic
-# + := bin//simulador.out
-# automatic
-# | := 
-# automatic
-# < := bin//simulador.out
-# automatic
-# ^ := bin//simulador.out
-# automatic
-# ? := bin//simulador.out
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=2/13=15%
-#  recipe to execute (from 'Makefile', line 31):
-	$(EXE) -i "./entradas/entrada_5.txt" -o "./saidas/saida_5.txt" -l
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 26):
+	$(EXE) -i "./entradas/entrada.txt" -o "./saidas/saida.txt"
+	$(EXE) -i "./entradas/entrada_1.txt" -o "./saidas/saida_1.txt"
+	$(EXE) -i "./entradas/entrada_2.txt" -o "./saidas/saida_2.txt"
+	$(EXE) -i "./entradas/entrada_3.txt" -o "./saidas/saida_3.txt"
+ 
+	$(EXE) -i "./entradas/entrada_4.txt" -o "./saidas/saida_4.txt"
+	$(EXE) -i "./entradas/entrada_5.txt" -o "./saidas/saida_5.txt"
 
 clean:
 #  Implicit rule search has not been done.
@@ -326,9 +306,8 @@ obj//memlog.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp 
 # Not a target:
 bin//simulador.out:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-10 12:29:56.489726031
-#  File has been updated.
-#  Successfully updated.
+#  File does not exist.
+#  File has not been updated.
 
 # Not a target:
 include//msgassert.hpp:
@@ -351,7 +330,7 @@ obj//TADs.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp in
 	$(CC)  $(CFLAGS) -o $(OBJ)/TADs.o $(SRC)/TADs.cpp 
 
 # files hash-table stats:
-# Load=23/1024=2%, Rehash=0, Collisions=1/78=1%
+# Load=23/1024=2%, Rehash=0, Collisions=1/77=1%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
@@ -361,9 +340,9 @@ obj//TADs.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp in
 # strcache buffers: 1 (0) / strings = 36 / storage = 433 B / avg = 12 B
 # current buf: size = 8162 B / used = 433 B / count = 36 / avg = 12 B
 
-# strcache performance: lookups = 77 / hit rate = 53%
+# strcache performance: lookups = 76 / hit rate = 52%
 # hash-table stats:
-# Load=36/8192=0%, Rehash=0, Collisions=1/77=1%
-# Finished Make data base on Sun Jul 10 12:30:03 2022
+# Load=36/8192=0%, Rehash=0, Collisions=1/76=1%
+# Finished Make data base on Sun Jul 10 13:18:56 2022
 
  
