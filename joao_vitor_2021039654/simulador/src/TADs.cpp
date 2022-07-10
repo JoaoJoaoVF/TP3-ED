@@ -260,7 +260,7 @@ void ArvoreBinaria::Antecessor(TipoNo *q, TipoNo *&r)
     free(q);
 }
 
-Hash_LE::Hash_LE(int M)
+Hash_AB::Hash_AB(int M)
 {
     // Descricao: Construtor da Tabela Hash.
     // Entrada: Não possui.
@@ -269,7 +269,7 @@ Hash_LE::Hash_LE(int M)
     this->Tabela = new ArvoreBinaria[M];
 }
 
-int Hash_LE::Hash(int id_mensagem, int M)
+int Hash_AB::Hash(int id_mensagem, int M)
 {
     // Descricao: Calcula o valor do mod para determinar a posição na tabela.
     // Entrada: O id da mensagem e o tamanho da Tabela
@@ -278,7 +278,7 @@ int Hash_LE::Hash(int id_mensagem, int M)
     return id_mensagem % M;
 }
 
-Mensagem Hash_LE::Pesquisa(Mensagem email, int M, int Tipo)
+Mensagem Hash_AB::Pesquisa(Mensagem email, int M, int Tipo)
 {
     // Descricao: Realiza a pesquisa de dado Email na Tabela, e
     // realiza a escrita no arquivo saida do resultado da pesquisa.
@@ -311,7 +311,7 @@ Mensagem Hash_LE::Pesquisa(Mensagem email, int M, int Tipo)
     return email;
 }
 
-void Hash_LE::Insere(Mensagem email, int M)
+void Hash_AB::Insere(Mensagem email, int M)
 {
     // Descricao: Realiza a inserção de dado Email na Tabela, e
     // realiza a escrita no arquivo saida do resultado da inserção.
@@ -330,7 +330,7 @@ void Hash_LE::Insere(Mensagem email, int M)
     saida.close();
 }
 
-void Hash_LE::Remove(Mensagem email, int M)
+void Hash_AB::Remove(Mensagem email, int M)
 {
     // Descricao: Realiza a remoção de dado Email na Tabela, inicialemente
     // realiza a procura desse elemento na Tabela e caso ele não esteja presente

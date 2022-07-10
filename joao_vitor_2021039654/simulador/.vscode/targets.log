@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Jul 10 01:41:57 2022
+# Make data base, printed on Sun Jul 10 02:51:53 2022
 
 # Variables
 
@@ -209,7 +209,7 @@ obj//main.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp in
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-10 01:41:55.772593926
+#  Last modified 2022-07-10 02:44:59.802614763
 #  File has been updated.
 #  Successfully updated.
 
@@ -274,8 +274,8 @@ bin//simulador: obj//Execucao.o obj//Simulador.o obj//main.o obj//memlog.o obj//
 #  Modification time never checked.
 #  File has not been updated.
 
-use: bin//simulador.out
  
+use: bin//simulador.out
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: ''
 #  File does not exist.
@@ -330,7 +330,7 @@ obj//memlog.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp 
 # Not a target:
 bin//simulador.out:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-10 01:22:24.782587478
+#  Last modified 2022-07-10 02:45:02.412614777
 #  File has been updated.
 #  Successfully updated.
 
@@ -368,6 +368,6 @@ obj//TADs.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp in
 # strcache performance: lookups = 77 / hit rate = 53%
 # hash-table stats:
 # Load=36/8192=0%, Rehash=0, Collisions=1/77=1%
-# Finished Make data base on Sun Jul 10 01:41:57 2022
+# Finished Make data base on Sun Jul 10 02:51:53 2022
 
  

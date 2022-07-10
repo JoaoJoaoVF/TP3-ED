@@ -70,10 +70,10 @@ private:
     TipoNo *raiz;
 };
 
-class Hash_LE
+class Hash_AB
 {
 public:
-    Hash_LE(int M);
+    Hash_AB(int M);
     Mensagem Pesquisa(Mensagem email, int M, int Tipo);
     void Insere(Mensagem email, int M);
     void Remove(Mensagem email, int M);

@@ -5,6 +5,7 @@
 //---------------------------------------------------------------------
 
 #include "../include/Execucao.hpp"
+#include "../include/TADs.hpp"
 
 void Executa(char *arquivo_entrada, char *arquivo_saida)
 {
@@ -22,7 +23,7 @@ void Executa(char *arquivo_entrada, char *arquivo_saida)
     fscanf(entrada, "%d", &M);
 
     // Inicia a tabela Hash com o tamanho M e inicializa a classe da mensagem do email
-    Hash_LE *server = new Hash_LE(M);
+    Hash_AB *server = new Hash_AB(M);
     Mensagem email;
 
     // adiciona a mensagem o nome do arquivo de saida
