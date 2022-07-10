@@ -1,0 +1,5 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/jvf/joao_vitor_2021039654/TP3-ED/joao_vitor_2021039654/simulador'
+./bin//simulador.out -i "./entradas/entrada_1.txt" -o "./saidas/saida_1.txt"
+make: Leaving directory '/home/jvf/joao_vitor_2021039654/TP3-ED/joao_vitor_2021039654/simulador'
+ 

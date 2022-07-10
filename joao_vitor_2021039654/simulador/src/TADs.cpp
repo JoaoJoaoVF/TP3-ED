@@ -87,12 +87,7 @@ void ArvoreBinaria::InsereRecursivo(TipoNo *&p, Mensagem dados)
     if (p == NULL)
     {
         p = new TipoNo();
-        // p->item = item;
         p->dados = dados;
-        // p->dados.SetConteudo(dados.GetConteudo());
-        // // cout << "conteudo " << p->dados.GetConteudo() << endl;
-        // p->dados.SetIdDestinatario(dados.GetIdDestinatario());
-        // p->dados.SetIdMensagem(dados.GetIdMensagem());
     }
     else
     {
@@ -149,7 +144,6 @@ Mensagem ArvoreBinaria::PesquisaRecursivo(TipoNo *no, int id_mensagem)
     Mensagem aux;
     if (no == NULL)
     {
-        // cout << "sdlçojlksajfdslkjfdskljfdsfds" << endl;
         aux.SetIdMensagem(-1); // Flag para item não presente
         return aux;
     }
@@ -159,7 +153,6 @@ Mensagem ArvoreBinaria::PesquisaRecursivo(TipoNo *no, int id_mensagem)
         return PesquisaRecursivo(no->dir, id_mensagem);
     else
     {
-        // cout << no->dados.GetConteudo() << endl;
         return no->dados;
     }
 }
@@ -241,13 +234,11 @@ Mensagem Hash_LE::Pesquisa(Mensagem dados, int M, int Tipo)
     pos = Hash(dados.GetIdDestinatario(), M);
     texto = Tabela[pos].Pesquisa(dados.GetIdMensagem());
 
-    cout << texto.GetConteudo() << endl;
-
     if (Tipo == 1)
     {
         if (texto.id_mensagem == -1)
         {
-            cout << "CONSULTA " << texto.GetIdDestinatario() << "  " << texto.GetIdMensagem() << ": MENSAGEM INEXISTENTE " << endl;
+            cout << "CONSULTA " << dados.GetIdDestinatario() << " " << dados.GetIdMensagem() << ": MENSAGEM INEXISTENTE " << endl;
         }
         else
         {
