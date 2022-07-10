@@ -17,7 +17,6 @@ class Mensagem
 {
 public:
     Mensagem();
-    Mensagem(int id_mensagem, string msg_conteudo);
     void SetIdMensagem(int _id_mensagem);
     int GetIdMensagem();
     void SetIdDestinatario(int _id_destinatario);
@@ -38,6 +37,7 @@ class TipoNo
 public:
     TipoNo();
 
+private:
     Mensagem dados;
     TipoNo *esq;
     TipoNo *dir;
@@ -55,6 +55,7 @@ public:
     Mensagem Pesquisa(int id_mensagem);
     void Remove(int id_mensagem);
 
+private:
     void InsereRecursivo(TipoNo *&p, Mensagem dados);
     void ApagaRecursivo(TipoNo *p);
     Mensagem PesquisaRecursivo(TipoNo *p, int id_mensagem);
@@ -75,6 +76,7 @@ public:
     void Insere(Mensagem dados, int M);
     void Remove(Mensagem dados, int M);
 
+private:
     // static const int M = 50;
     int Hash(int id_mensagem, int M);
     ArvoreBinaria *Tabela;

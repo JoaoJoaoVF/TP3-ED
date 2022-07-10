@@ -17,14 +17,14 @@ void uso()
 // Saida: impressao das opcoes de linha de comando
 {
     fprintf(stderr, "simulador\n");
-    fprintf(stderr, "\t-I, -i \t(Nome do arquivo de entrada com o texto a ser processado) \n");
-    fprintf(stderr, "\t-O, -o \t(endereço do arquivo de saída)\n");
+    fprintf(stderr, "\t-i \t(Nome do arquivo de entrada com o texto a ser processado) \n");
+    fprintf(stderr, "\t-o \t(endereço do arquivo de saída)\n");
 }
 
 void parse_args(int argc, char **argv)
 // Descricao: le as opcoes da linha de comando e inicializa variaveis
 // Entrada: argc e argv
-// Saida: optescolhida
+// Saida: nome_entrada, nome_saida e
 {
     // variaveis externas do getopt
     extern char *optarg;
@@ -58,6 +58,10 @@ void parse_args(int argc, char **argv)
 
 int main(int argc, char **argv)
 {
+    // Descricao: programa principal para funcionameto do Email.
+    // Entrada: argc e argv.
+    // Saida: no arquivo especificado escreve os 10 melhores documentos pra busca dada.
+
     // Usado para analisar os paramertos passado na linha de comando
     parse_args(argc, argv);
 

@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Jul 10 01:08:34 2022
+# Make data base, printed on Sun Jul 10 01:41:57 2022
 
 # Variables
 
@@ -18,15 +18,15 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 WSLENV = VSCODE_WSL_EXT_LOCATION/up
 # default
 .SHELLFLAGS := -c
-# makefile (from 'Makefile', line 14)
-OBJ = ./obj/
 # makefile (from 'Makefile', line 13)
+OBJ = ./obj/
+# makefile (from 'Makefile', line 12)
 SRC = src
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
-# makefile (from 'Makefile', line 22)
+# makefile (from 'Makefile', line 21)
 EXE = $(BIN)/simulador.out
 # automatic
 @F = $(notdir $@)
@@ -34,15 +34,15 @@ EXE = $(BIN)/simulador.out
 CURDIR := /home/jvf/joao_vitor_2021039654/TP3-ED/joao_vitor_2021039654/simulador
 # makefile
 SHELL = /bin/sh
-# makefile (from 'Makefile', line 16)
+# makefile (from 'Makefile', line 15)
 BIN = ./bin/
 # environment
 VSCODE_NLS_CONFIG = {"locale":"pt-br","availableLanguages":{"*":"pt-br"},"_languagePackId":"586ada59ea240d9b175b3ea817e73e56.pt-br","_translationsConfigFile":"/home/jvf/.vscode-server/data/clp/586ada59ea240d9b175b3ea817e73e56.pt-br/tcf.json","_cacheRoot":"/home/jvf/.vscode-server/data/clp/586ada59ea240d9b175b3ea817e73e56.pt-br","_resolvedLanguagePackCoreLocation":"/home/jvf/.vscode-server/data/clp/586ada59ea240d9b175b3ea817e73e56.pt-br/92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9","_corruptedFile":"/home/jvf/.vscode-server/data/clp/586ada59ea240d9b175b3ea817e73e56.pt-br/corrupted.info","_languagePackSupport":true}
 # environment
 _ = /home/jvf/.vscode-server/bin/92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9/node
-# makefile (from 'Makefile', line 20)
-CFLAGS = -pg -Wall -c -I$(INC) -std=c++11
 # makefile (from 'Makefile', line 19)
+CFLAGS = -pg -Wall -c -I$(INC) -std=c++11
+# makefile (from 'Makefile', line 18)
 HDRS = $(INC)/memlog.hpp $(INC)/msgassert.hpp $(INC)/Execucao.hpp $(INC)/Simulador.hpp $(INC)/TADs.hpp 
 # makefile (from 'Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
@@ -50,7 +50,7 @@ MAKEFILE_LIST :=  Makefile
 GNUMAKEFLAGS := 
 # environment
 XDG_DATA_DIRS = /usr/local/share:/usr/share:/var/lib/snapd/desktop
-# makefile (from 'Makefile', line 18)
+# makefile (from 'Makefile', line 17)
 OBJS = $(OBJ)/Execucao.o $(OBJ)/Simulador.o $(OBJ)/main.o $(OBJ)/memlog.o $(OBJ)/TADs.o
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
@@ -98,7 +98,7 @@ MAKE = $(MAKE_COMMAND)
 MAKECMDGOALS := all
 # environment
 SHLVL = 0
-# makefile (from 'Makefile', line 11)
+# makefile (from 'Makefile', line 10)
 CC = g++
 # default
 MAKE_VERSION := 4.2.1
@@ -114,7 +114,7 @@ NAME = LAPTOP-NCJTP75F
 VSCODE_WSL_EXT_LOCATION = /mnt/c/Users/João Vitor Ferreira/.vscode/extensions/ms-vscode-remote.remote-wsl-0.66.3
 # default
 MAKE_COMMAND := make
-# makefile (from 'Makefile', line 15)
+# makefile (from 'Makefile', line 14)
 INC = ./include/
 # default
 .VARIABLES := 
@@ -140,7 +140,7 @@ MAKEFILES :=
 LC_ALL = C
 # environment
 HOSTTYPE = x86_64
-# makefile (from 'Makefile', line 12)
+# makefile (from 'Makefile', line 11)
 LIBS = -lm 
 # automatic
 ^F = $(notdir $^)
@@ -156,10 +156,10 @@ LANG = C
 TERM = xterm-256color
 # environment
 WSL_DISTRO_NAME = Ubuntu
-# makefile (from 'Makefile', line 17)
+# makefile (from 'Makefile', line 16)
 SAIDA = ./saidas/
 # variable set hash-table stats:
-# Load=74/1024=7%, Rehash=0, Collisions=17/153=11%
+# Load=74/1024=7%, Rehash=0, Collisions=17/161=11%
 
 # Pattern-specific Variable Values
 
@@ -181,7 +181,7 @@ obj//Execucao.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 40):
+#  recipe to execute (from 'Makefile', line 39):
 	$(CC)  $(CFLAGS) -o $(OBJ)/Execucao.o $(SRC)/Execucao.cpp 
 
 all: use
@@ -191,13 +191,13 @@ all: use
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/13=0%
 
 obj//main.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp include//Simulador.hpp include//TADs.hpp src/main.cpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 37):
+#  recipe to execute (from 'Makefile', line 36):
 	$(CC)  $(CFLAGS) -o $(OBJ)/main.o $(SRC)/main.cpp 
 
 # Not a target:
@@ -209,7 +209,7 @@ obj//main.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp in
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-10 01:08:25.822582858
+#  Last modified 2022-07-10 01:41:55.772593926
 #  File has been updated.
 #  Successfully updated.
 
@@ -265,7 +265,7 @@ bin//simulador: obj//Execucao.o obj//Simulador.o obj//main.o obj//memlog.o obj//
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 34):
+#  recipe to execute (from 'Makefile', line 33):
 	$(CC) -g -o $(BIN)/simulador $(OBJS) $(LIBS)
 
 # Not a target:
@@ -298,15 +298,19 @@ use: bin//simulador.out
 # automatic
 # ? := bin//simulador.out
 # variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=2/13=15%
-#  recipe to execute (from 'Makefile', line 31):
+# Load=8/32=25%, Rehash=0, Collisions=6/21=29%
+#  recipe to execute (from 'Makefile', line 26):
+	$(EXE) -i "./entradas/entrada.txt" -o "./saidas/saida.txt"
+	$(EXE) -i "./entradas/entrada_1.txt" -o "./saidas/saida_1.txt"
+	$(EXE) -i "./entradas/entrada_2.txt" -o "./saidas/saida_2.txt"
+	$(EXE) -i "./entradas/entrada_3.txt" -o "./saidas/saida_3.txt"
 	$(EXE) -i "./entradas/entrada_4.txt" -o "./saidas/saida_4.txt"
 
 clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 52):
+#  recipe to execute (from 'Makefile', line 51):
 	rm -f $(EXE)* $(OBJS)* $(SAIDA)* $(BIN)* gmon.out
 	clear 
 
@@ -320,13 +324,13 @@ obj//memlog.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 49):
+#  recipe to execute (from 'Makefile', line 48):
 	$(CC) $(CFLAGS) -o $(OBJ)/memlog.o $(SRC)/memlog.cpp
 
 # Not a target:
 bin//simulador.out:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-10 01:08:28.902582875
+#  Last modified 2022-07-10 01:22:24.782587478
 #  File has been updated.
 #  Successfully updated.
 
@@ -340,14 +344,14 @@ obj//Simulador.o: include//memlog.hpp include//msgassert.hpp include//Execucao.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 43):
+#  recipe to execute (from 'Makefile', line 42):
 	$(CC)  $(CFLAGS) -o $(OBJ)/Simulador.o $(SRC)/Simulador.cpp 
 
 obj//TADs.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp include//Simulador.hpp include//TADs.hpp src/TADs.cpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 46):
+#  recipe to execute (from 'Makefile', line 45):
 	$(CC)  $(CFLAGS) -o $(OBJ)/TADs.o $(SRC)/TADs.cpp 
 
 # files hash-table stats:
@@ -364,6 +368,6 @@ obj//TADs.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp in
 # strcache performance: lookups = 77 / hit rate = 53%
 # hash-table stats:
 # Load=36/8192=0%, Rehash=0, Collisions=1/77=1%
-# Finished Make data base on Sun Jul 10 01:08:34 2022
+# Finished Make data base on Sun Jul 10 01:41:57 2022
 
  

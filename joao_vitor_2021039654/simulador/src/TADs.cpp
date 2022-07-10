@@ -1,44 +1,67 @@
+//---------------------------------------------------------------------
+// Arquivo      : TADs.cpp
+// Conteudo     : Arquivo de implentação dos Tipos Abstratos de Dados
+// Autor        : Joao Vitor Ferreira (ferreirajoao@dcc.ufmg.br)
+//---------------------------------------------------------------------
+
 #include "../include/TADs.hpp"
 
 using namespace std;
 
 Mensagem::Mensagem()
 {
+    // Descricao: Construtor da Mensagem.
+    // Entrada: Não possui.
+    // Saida: Mensagem inicializada.
+
     id_mensagem = -1; // indica um item vazio
     conteudo = " ";
     id_destinatario = -1;
 }
 
-Mensagem::Mensagem(int id_mensagem, string msg_conteudo)
-{
-    id_mensagem = id_mensagem;
-    conteudo = msg_conteudo;
-}
-
 void Mensagem::SetIdMensagem(int _id_mensagem)
 {
+    // Descricao: Define o id da Mensagem.
+    // Entrada: Um int com o id da Mensagem.
+    // Saida: id da mensagem inicializado.
+
     id_mensagem = _id_mensagem;
 }
 
 int Mensagem::GetIdMensagem()
 {
+    // Descricao: Retorna o id da Mensagem.
+    // Entrada: Não possui.
+    // Saida: id da mensagem.
+
     return id_mensagem;
 }
 
 void Mensagem::SetIdDestinatario(int _id_destinatario)
 {
+    // Descricao: Define o id do destinatario.
+    // Entrada: Um int com o id da destinatario.
+    // Saida: id do destinatario inicializado.
+
     id_destinatario = _id_destinatario;
 }
 
 int Mensagem::GetIdDestinatario()
 {
+    // Descricao: Retorna o id do destinatario.
+    // Entrada: Não possui.
+    // Saida: id do destinatario.
+
     return id_destinatario;
 }
 
 void Mensagem::SetConteudo(string _msg_conteudo)
-{ // REMOVE O ESPAÇO NO FINAL DA MENSAGEM
-    int x = _msg_conteudo.length();
+{
+    // Descricao: Define o conteudo da mensagem, e remove o espaço em branco ao final da mensagem.
+    // Entrada: Uma string com o conteudo da mensagem.
+    // Saida: conteudo da mensagem inicializado.
 
+    int x = _msg_conteudo.length();
     _msg_conteudo.erase(x - 1);
 
     conteudo = _msg_conteudo;
@@ -46,17 +69,11 @@ void Mensagem::SetConteudo(string _msg_conteudo)
 
 string Mensagem::GetConteudo()
 {
-    return conteudo;
-}
+    // Descricao: Retorna o conteudo da mensagem.
+    // Entrada: Não possui.
+    // Saida: Conteudo da mensagem.
 
-bool Mensagem::Vazio()
-{
-    if (conteudo.empty() && id_mensagem == -1)
-    {
-        return true;
-    }
-    else
-        return false;
+    return conteudo;
 }
 
 void Mensagem::Imprime()
