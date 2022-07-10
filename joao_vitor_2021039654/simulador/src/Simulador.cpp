@@ -17,6 +17,11 @@ void Entregar_email(Hash_AB *server, Mensagem email, int U, string conteudo, int
     email.SetIdMensagem(E);
     email.SetConteudo(conteudo);
     email.SetIdDestinatario(U);
+    email.indice_analisamem = 0;
+
+    ESCREVEMEMLOG((long int)email.GetIdMensagem(), (long int)sizeof(int), email.indice_analisamem);
+    ESCREVEMEMLOG((long int)email.GetIdDestinatario(), (long int)sizeof(int), email.indice_analisamem);
+    ESCREVEMEMLOG((long int)email.GetConteudo()[0], (long int)email.GetConteudo().length() * sizeof(char), email.indice_analisamem);
 
     server->Insere(email, M);
 }
@@ -30,6 +35,10 @@ void Consultar_email(Hash_AB *server, Mensagem email, int U, int M, int E)
     Mensagem resposta;
     email.SetIdMensagem(E);
     email.SetIdDestinatario(U);
+    email.indice_analisamem = 1;
+
+    ESCREVEMEMLOG((long int)email.GetIdMensagem(), (long int)sizeof(int), email.indice_analisamem);
+    ESCREVEMEMLOG((long int)email.GetIdDestinatario(), (long int)sizeof(int), email.indice_analisamem);
 
     resposta = server->Pesquisa(email, M, 1);
 }
@@ -42,6 +51,10 @@ void Apagar_email(Hash_AB *server, Mensagem email, int U, int M, int E)
 
     email.SetIdMensagem(E);
     email.SetIdDestinatario(U);
+    email.indice_analisamem = 2;
+
+    ESCREVEMEMLOG((long int)email.GetIdMensagem(), (long int)sizeof(int), email.indice_analisamem);
+    ESCREVEMEMLOG((long int)email.GetIdDestinatario(), (long int)sizeof(int), email.indice_analisamem);
 
     server->Remove(email, M);
 }

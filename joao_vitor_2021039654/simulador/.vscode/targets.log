@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Jul 10 02:51:53 2022
+# Make data base, printed on Sun Jul 10 12:30:03 2022
 
 # Variables
 
@@ -63,7 +63,7 @@ PATH = /home/jvf/.vscode-server/bin/92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9/bin
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-757b0d7a-29cf-4931-b222-0f6be81258f4.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-70561d2d-cbf1-477f-af85-73c4639fa9e7.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -75,7 +75,7 @@ PWD = /home/jvf/joao_vitor_2021039654/TP3-ED/joao_vitor_2021039654/simulador
 # default
 .LOADED := 
 # environment
-WSL_INTEROP = /run/WSL/221_interop
+WSL_INTEROP = /run/WSL/78_interop
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -159,7 +159,7 @@ WSL_DISTRO_NAME = Ubuntu
 # makefile (from 'Makefile', line 16)
 SAIDA = ./saidas/
 # variable set hash-table stats:
-# Load=74/1024=7%, Rehash=0, Collisions=17/161=11%
+# Load=74/1024=7%, Rehash=0, Collisions=17/153=11%
 
 # Pattern-specific Variable Values
 
@@ -181,7 +181,7 @@ obj//Execucao.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 39):
+#  recipe to execute (from 'Makefile', line 40):
 	$(CC)  $(CFLAGS) -o $(OBJ)/Execucao.o $(SRC)/Execucao.cpp 
 
 all: use
@@ -191,13 +191,13 @@ all: use
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/13=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
 
 obj//main.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp include//Simulador.hpp include//TADs.hpp src/main.cpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 36):
+#  recipe to execute (from 'Makefile', line 37):
 	$(CC)  $(CFLAGS) -o $(OBJ)/main.o $(SRC)/main.cpp 
 
 # Not a target:
@@ -209,7 +209,7 @@ obj//main.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp in
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-10 02:44:59.802614763
+#  Last modified 2022-07-10 12:29:53.179726012
 #  File has been updated.
 #  Successfully updated.
 
@@ -265,7 +265,7 @@ bin//simulador: obj//Execucao.o obj//Simulador.o obj//main.o obj//memlog.o obj//
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 33):
+#  recipe to execute (from 'Makefile', line 34):
 	$(CC) -g -o $(BIN)/simulador $(OBJS) $(LIBS)
 
 # Not a target:
@@ -298,19 +298,15 @@ use: bin//simulador.out
 # automatic
 # ? := bin//simulador.out
 # variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=6/21=29%
-#  recipe to execute (from 'Makefile', line 26):
-	$(EXE) -i "./entradas/entrada.txt" -o "./saidas/saida.txt"
-	$(EXE) -i "./entradas/entrada_1.txt" -o "./saidas/saida_1.txt"
-	$(EXE) -i "./entradas/entrada_2.txt" -o "./saidas/saida_2.txt"
-	$(EXE) -i "./entradas/entrada_3.txt" -o "./saidas/saida_3.txt"
-	$(EXE) -i "./entradas/entrada_4.txt" -o "./saidas/saida_4.txt"
+# Load=8/32=25%, Rehash=0, Collisions=2/13=15%
+#  recipe to execute (from 'Makefile', line 31):
+	$(EXE) -i "./entradas/entrada_5.txt" -o "./saidas/saida_5.txt" -l
 
 clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 51):
+#  recipe to execute (from 'Makefile', line 52):
 	rm -f $(EXE)* $(OBJS)* $(SAIDA)* $(BIN)* gmon.out
 	clear 
 
@@ -324,13 +320,13 @@ obj//memlog.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 48):
+#  recipe to execute (from 'Makefile', line 49):
 	$(CC) $(CFLAGS) -o $(OBJ)/memlog.o $(SRC)/memlog.cpp
 
 # Not a target:
 bin//simulador.out:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-10 02:45:02.412614777
+#  Last modified 2022-07-10 12:29:56.489726031
 #  File has been updated.
 #  Successfully updated.
 
@@ -344,14 +340,14 @@ obj//Simulador.o: include//memlog.hpp include//msgassert.hpp include//Execucao.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 42):
+#  recipe to execute (from 'Makefile', line 43):
 	$(CC)  $(CFLAGS) -o $(OBJ)/Simulador.o $(SRC)/Simulador.cpp 
 
 obj//TADs.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp include//Simulador.hpp include//TADs.hpp src/TADs.cpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 45):
+#  recipe to execute (from 'Makefile', line 46):
 	$(CC)  $(CFLAGS) -o $(OBJ)/TADs.o $(SRC)/TADs.cpp 
 
 # files hash-table stats:
@@ -368,6 +364,6 @@ obj//TADs.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp in
 # strcache performance: lookups = 77 / hit rate = 53%
 # hash-table stats:
 # Load=36/8192=0%, Rehash=0, Collisions=1/77=1%
-# Finished Make data base on Sun Jul 10 02:51:53 2022
+# Finished Make data base on Sun Jul 10 12:30:03 2022
 
  

@@ -129,6 +129,8 @@ void ArvoreBinaria::InsereRecursivo(TipoNo *&p, Mensagem email)
     }
     else
     {
+        leMemLog((long int)email.GetIdMensagem(), (long int)sizeof(int), email.indice_analisamem);
+        leMemLog((long int)p->email.GetIdMensagem(), (long int)sizeof(int), email.indice_analisamem);
         if (email.GetIdMensagem() < p->email.GetIdMensagem())
             InsereRecursivo(p->esq, email);
         else
@@ -146,16 +148,16 @@ void ArvoreBinaria::Limpa()
     raiz = NULL;
 }
 
-Mensagem ArvoreBinaria::Pesquisa(int id_mensagem)
+Mensagem ArvoreBinaria::Pesquisa(Mensagem email)
 {
     // Descricao: Pesquisa um email na Arvore Binaria.
     // Entrada: Um TAD Mensagem.
     // Saida: Um email.
 
-    return PesquisaRecursivo(raiz, id_mensagem);
+    return PesquisaRecursivo(raiz, email);
 }
 
-Mensagem ArvoreBinaria::PesquisaRecursivo(TipoNo *no, int id_mensagem)
+Mensagem ArvoreBinaria::PesquisaRecursivo(TipoNo *no, Mensagem email)
 {
     // Descricao: Função que realiza o percorrimento dos Nós da Arvore para encontrar o
     // local onde o email esta e se ele esta presente na Arvore.
@@ -168,24 +170,26 @@ Mensagem ArvoreBinaria::PesquisaRecursivo(TipoNo *no, int id_mensagem)
         aux.SetIdMensagem(-1); // Flag para item não presente
         return aux;
     }
-    if (id_mensagem < no->email.GetIdMensagem())
-        return PesquisaRecursivo(no->esq, id_mensagem);
-    else if (id_mensagem > no->email.GetIdMensagem())
-        return PesquisaRecursivo(no->dir, id_mensagem);
+    leMemLog((long int)email.GetIdMensagem(), (long int)sizeof(int), email.indice_analisamem);
+    leMemLog((long int)no->email.GetIdMensagem(), (long int)sizeof(int), email.indice_analisamem);
+    if (email.GetIdMensagem() < no->email.GetIdMensagem())
+        return PesquisaRecursivo(no->esq, email);
+    else if (email.GetIdMensagem() > no->email.GetIdMensagem())
+        return PesquisaRecursivo(no->dir, email);
     else
         return no->email;
 }
 
-void ArvoreBinaria::Remove(int id_mensagem)
+void ArvoreBinaria::Remove(Mensagem email)
 {
     // Descricao: Remove um email na Arvore Binaria.
     // Entrada: Um TAD Mensagem.
     // Saida: Não possui.
 
-    return RemoveRecursivo(raiz, id_mensagem);
+    return RemoveRecursivo(raiz, email);
 }
 
-void ArvoreBinaria::RemoveRecursivo(TipoNo *&no, int id_mensagem)
+void ArvoreBinaria::RemoveRecursivo(TipoNo *&no, Mensagem email)
 {
     // Descricao: Função que realiza o percorrimento dos Nós da Arvore para encontrar o
     // local onde o email esta e se ele esta presente na Arvore o remove, e realiza a
@@ -199,13 +203,14 @@ void ArvoreBinaria::RemoveRecursivo(TipoNo *&no, int id_mensagem)
 
     if (no == NULL)
     {
-        cout << "ERRO: MENSAGEM INEXISTENTE" << endl;
         saida << "ERRO: MENSAGEM INEXISTENTE" << endl;
     }
-    if (id_mensagem < no->email.GetIdMensagem())
-        return RemoveRecursivo(no->esq, id_mensagem);
-    else if (id_mensagem > no->email.GetIdMensagem())
-        return RemoveRecursivo(no->dir, id_mensagem);
+    leMemLog((long int)email.GetIdMensagem(), (long int)sizeof(int), email.indice_analisamem);
+    leMemLog((long int)no->email.GetIdMensagem(), (long int)sizeof(int), email.indice_analisamem);
+    if (email.GetIdMensagem() < no->email.GetIdMensagem())
+        return RemoveRecursivo(no->esq, email);
+    else if (email.GetIdMensagem() > no->email.GetIdMensagem())
+        return RemoveRecursivo(no->dir, email);
     else
     {
         if (no->dir == NULL)
@@ -223,7 +228,6 @@ void ArvoreBinaria::RemoveRecursivo(TipoNo *&no, int id_mensagem)
         else
             Antecessor(no, no->esq);
 
-        cout << "OK: MENSAGEM APAGADA" << endl;
         saida << "OK: MENSAGEM APAGADA" << endl;
         saida.close();
     }
@@ -269,13 +273,15 @@ Hash_AB::Hash_AB(int M)
     this->Tabela = new ArvoreBinaria[M];
 }
 
-int Hash_AB::Hash(int id_mensagem, int M)
+int Hash_AB::Hash(Mensagem email, int M)
 {
     // Descricao: Calcula o valor do mod para determinar a posição na tabela.
     // Entrada: O id da mensagem e o tamanho da Tabela
     // Saida: A posição do email Tabela Hash.
 
-    return id_mensagem % M;
+    leMemLog((long int)email.GetIdMensagem(), (long int)sizeof(int), email.indice_analisamem);
+
+    return email.GetIdMensagem() % M;
 }
 
 Mensagem Hash_AB::Pesquisa(Mensagem email, int M, int Tipo)
@@ -288,8 +294,8 @@ Mensagem Hash_AB::Pesquisa(Mensagem email, int M, int Tipo)
 
     int pos;
     Mensagem texto;
-    pos = Hash(email.GetIdDestinatario(), M);
-    texto = Tabela[pos].Pesquisa(email.GetIdMensagem());
+    pos = Hash(email, M);
+    texto = Tabela[pos].Pesquisa(email);
 
     ofstream saida(email.arquivo_saida, ios::app);
 
@@ -297,14 +303,18 @@ Mensagem Hash_AB::Pesquisa(Mensagem email, int M, int Tipo)
     {
         if (texto.GetIdMensagem() == -1 || texto.GetIdDestinatario() != email.GetIdDestinatario())
         {
+            leMemLog((long int)email.GetIdMensagem(), (long int)sizeof(int), email.indice_analisamem);
+            leMemLog((long int)email.GetIdDestinatario(), (long int)sizeof(int), email.indice_analisamem);
 
             saida << "CONSULTA " << email.GetIdDestinatario() << " " << email.GetIdMensagem() << ": MENSAGEM INEXISTENTE" << endl;
-            cout << "CONSULTA " << email.GetIdDestinatario() << " " << email.GetIdMensagem() << ": MENSAGEM INEXISTENTE" << endl;
         }
         else
         {
+            leMemLog((long int)email.GetIdMensagem(), (long int)sizeof(int), email.indice_analisamem);
+            leMemLog((long int)email.GetIdDestinatario(), (long int)sizeof(int), email.indice_analisamem);
+            leMemLog((long int)email.GetConteudo()[0], (long int)email.GetConteudo().length() * sizeof(char), email.indice_analisamem);
+
             saida << "CONSULTA " << texto.GetIdDestinatario() << " " << texto.GetIdMensagem() << ": " << texto.GetConteudo() << endl;
-            cout << "CONSULTA " << texto.GetIdDestinatario() << " " << texto.GetIdMensagem() << ": " << texto.GetConteudo() << endl;
         }
     }
     saida.close();
@@ -323,10 +333,14 @@ void Hash_AB::Insere(Mensagem email, int M)
     ofstream saida(email.arquivo_saida, ios::app);
 
     aux = Pesquisa(email, M, 0);
-    pos = Hash(email.GetIdDestinatario(), M);
+    pos = Hash(email, M);
     Tabela[pos].Insere(email);
+
+    leMemLog((long int)email.GetIdMensagem(), (long int)sizeof(int), email.indice_analisamem);
+    leMemLog((long int)email.GetIdDestinatario(), (long int)sizeof(int), email.indice_analisamem);
+
     saida << "OK: MENSAGEM " << email.GetIdMensagem() << " PARA " << email.GetIdDestinatario() << " ARMAZENADA EM " << pos << endl;
-    cout << "OK: MENSAGEM " << email.GetIdMensagem() << " PARA " << email.GetIdDestinatario() << " ARMAZENADA EM " << pos << endl;
+
     saida.close();
 }
 
@@ -342,14 +356,13 @@ void Hash_AB::Remove(Mensagem email, int M)
     int pos;
     Mensagem texto;
     ofstream saida(email.arquivo_saida, ios::app);
-    pos = Hash(email.GetIdDestinatario(), M);
-    texto = Tabela[pos].Pesquisa(email.GetIdMensagem());
+    pos = Hash(email, M);
+    texto = Tabela[pos].Pesquisa(email);
     if (texto.GetIdMensagem() == -1)
     {
-        cout << "ERRO: MENSAGEM INEXISTENTE" << endl;
         saida << "ERRO: MENSAGEM INEXISTENTE" << endl;
     }
     else
-        Tabela[pos].Remove(email.GetIdMensagem());
+        Tabela[pos].Remove(email);
     saida.close();
 }

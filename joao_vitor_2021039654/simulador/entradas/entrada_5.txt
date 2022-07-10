@@ -1,0 +1,59 @@
+10
+ENTREGA 5 100 6 Bom dia, meu amigo! Tudo bom?
+ENTREGA 6 104 8 Boa tarde, minha amiga! Vou bem e você?
+ENTREGA 5 105 18 Também! Não estou encontrando meu casaco, será que o deixei na sua casa no fim de semana passado?
+ENTREGA 6 106 8 É um casaco longo e vermelho com bolsos?
+ENTREGA 5 107 3 Sim, este mesmo.
+ENTREGA 6 108 6 Está aqui, vou guardá-lo para você.
+ENTREGA 5 109 8 Obrigada! Vou buscá-lo no próximo sábado. Até lá!
+ENTREGA 6 110 1 Até!
+CONSULTA 5 103
+CONSULTA 6 104
+CONSULTA 5 107
+APAGA 5 103
+CONSULTA 5 103
+CONSULTA 6 110
+ENTREGA 3 111 4 Olá Professor, tudo bem?
+ENTREGA 4 112 8 Boa noite! Tudo bem. Como posso te ajudar?
+ENTREGA 3 113 12 Gostaria de entender melhor a nota do minha segunda prova, por favor.
+ENTREGA 4 114 14 Certo, passe na minha sala na quinta-feira às 9 horas que vamos discutir juntos.
+ENTREGA 3 115 1 Obrigado!
+CONSULTA 4 114
+CONSULTA 4 115
+CONSULTA 3 115
+ENTREGA 1 116 14 Boa tarde José! Amanhã preciso que você busque uma encomenda na filial da Pampulha.
+ENTREGA 2 117 9 Boa tarde Antônio! Certo, qual o endereço da loja?
+ENTREGA 1 118 10 Avenida Antônio Carlos, 1000. Chegar lá e procurar por Flávio.
+ENTREGA 2 119 5 Ok, estarei lá às 8h.
+ENTREGA 1 120 1 Obrigado.
+CONSULTA 1 116
+CONSULTA 1 117
+CONSULTA 2 117
+ENTREGA 5 121 10 Temos um presente para você! Clique aqui para saber mais.
+ENTREGA 5 122 10 Aqui está a fatura digital do seu cartão de crédito.
+ENTREGA 4 123 6 Nova mensagem no fórum do Moodle.
+CONSULTA 5 121
+CONSULTA 5 122
+CONSULTA 4 123
+APAGA 5 121
+CONSULTA 5 121
+CONSULTA 5 122
+CONSULTA 4 123
+APAGA 5 122
+CONSULTA 5 121
+CONSULTA 5 122
+CONSULTA 4 123
+APAGA 5 123
+CONSULTA 5 121
+CONSULTA 5 122
+CONSULTA 4 123
+APAGA 5 121
+APAGA 5 122
+APAGA 4 123
+APAGA 5 103
+APAGA 6 104
+APAGA 5 107
+APAGA 3 115
+APAGA 5 107
+APAGA 1 117
+APAGA 2 117

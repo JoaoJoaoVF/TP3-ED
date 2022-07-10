@@ -36,6 +36,7 @@ public:
     int id_destinatario;
     string conteudo;
     string arquivo_saida;
+    int indice_analisamem;
 };
 
 class TipoNo
@@ -58,14 +59,14 @@ public:
     void Insere(Mensagem email);
     void Caminha(int tipo);
     void Limpa();
-    Mensagem Pesquisa(int id_mensagem);
-    void Remove(int id_mensagem);
+    Mensagem Pesquisa(Mensagem email);
+    void Remove(Mensagem email);
 
 private:
     void InsereRecursivo(TipoNo *&p, Mensagem email);
     void ApagaRecursivo(TipoNo *p);
-    Mensagem PesquisaRecursivo(TipoNo *p, int id_mensagem);
-    void RemoveRecursivo(TipoNo *&p, int id_mensagem);
+    Mensagem PesquisaRecursivo(TipoNo *p, Mensagem email);
+    void RemoveRecursivo(TipoNo *&p, Mensagem email);
     void Antecessor(TipoNo *q, TipoNo *&r);
     TipoNo *raiz;
 };
@@ -79,7 +80,7 @@ public:
     void Remove(Mensagem email, int M);
 
 private:
-    int Hash(int id_mensagem, int M);
+    int Hash(Mensagem email, int M);
     ArvoreBinaria *Tabela;
 };
 
