@@ -45,16 +45,18 @@ void Executa(char *arquivo_entrada, char *arquivo_saida)
             fscanf(entrada, "%d %d", &U, &E);
             // cout << U << " " << E << endl;
 
-            Consultar_email(server, U, M, E);
+            Consultar_email(server, email, U, M, E);
         }
         else if (strcmp(Comando, "APAGA") == 0)
         {
             // cout << Comando << endl;
             fscanf(entrada, "%d %d", &U, &E);
             // cout << U << " " << E << endl;
+            Apagar_email(server, U, M, E);
         }
     }
 
     // cout << arquivo_saida << endl;
     fclose(entrada);
+    delete[] server;
 }

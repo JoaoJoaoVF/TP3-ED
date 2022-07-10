@@ -4,6 +4,7 @@ Mensagem::Mensagem()
 {
     id_mensagem = -1; // indica um item vazio
     conteudo = " ";
+    id_destinatario = -1;
 }
 
 Mensagem::Mensagem(int id_mensagem, string msg_conteudo)
@@ -21,6 +22,7 @@ int Mensagem::GetIdMensagem()
 {
     return id_mensagem;
 }
+
 void Mensagem::SetIdDestinatario(int _id_destinatario)
 {
     id_destinatario = _id_destinatario;
@@ -85,6 +87,10 @@ void ArvoreBinaria::InsereRecursivo(TipoNo *&p, Mensagem dados)
         p = new TipoNo();
         // p->item = item;
         p->dados = dados;
+        p->dados.SetConteudo(dados.GetConteudo());
+        // cout << "conteudo " << p->dados.GetConteudo() << endl;
+        p->dados.SetIdDestinatario(dados.GetIdDestinatario());
+        p->dados.SetIdMensagem(dados.GetIdMensagem());
     }
     else
     {
@@ -141,6 +147,7 @@ Mensagem ArvoreBinaria::PesquisaRecursivo(TipoNo *no, int id_mensagem)
     Mensagem aux;
     if (no == NULL)
     {
+        // cout << "sdlçojlksajfdslkjfdskljfdsfds" << endl;
         aux.SetIdMensagem(-1); // Flag para item não presente
         return aux;
     }
@@ -149,7 +156,10 @@ Mensagem ArvoreBinaria::PesquisaRecursivo(TipoNo *no, int id_mensagem)
     else if (id_mensagem > no->dados.GetIdMensagem())
         return PesquisaRecursivo(no->dir, id_mensagem);
     else
+    {
+        // cout << no->dados.GetConteudo() << endl;
         return no->dados;
+    }
 }
 
 void ArvoreBinaria::Remove(int id_mensagem)
@@ -162,7 +172,7 @@ void ArvoreBinaria::RemoveRecursivo(TipoNo *&no, int id_mensagem)
     TipoNo *aux;
     if (no == NULL)
     {
-        throw("ERRO: MENSAGEM INEXISTENTE\n ");
+        cout << "ERRO: MENSAGEM INEXISTENTE" << endl;
     }
     if (id_mensagem < no->dados.GetIdMensagem())
         return RemoveRecursivo(no->esq, id_mensagem);
@@ -228,7 +238,7 @@ Mensagem Hash_LE::Pesquisa(Mensagem dados, int M)
     Mensagem texto;
     pos = Hash(dados.GetIdDestinatario(), M);
     texto = Tabela[pos].Pesquisa(dados.GetIdMensagem());
-    // cout << dados.GetConteudo() << endl;
+    // cout << texto.GetIdMensagem() << endl;
     return dados;
 }
 
@@ -246,5 +256,6 @@ void Hash_LE::Remove(Mensagem dados, int M)
 {
     int pos;
     pos = Hash(dados.GetIdDestinatario(), M);
+    // cout << pos << endl;
     Tabela[pos].Remove(dados.GetIdMensagem());
 }

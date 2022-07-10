@@ -1,0 +1,10 @@
+Ver o pq 
+ENTREGA - Parece que funciona bem
+        - Consegue inserir os dados
+
+CONSULTA - Não funciona 
+         - SEMPRE ACHA AS POSICOES
+         - A MENSAGEM ESTA SEMPRE VAZIA
+         
+APAGA - Não funciona
+      - Tem um Segmentation Fault no fim da execução

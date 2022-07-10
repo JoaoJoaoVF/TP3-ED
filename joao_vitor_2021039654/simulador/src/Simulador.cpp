@@ -15,14 +15,14 @@ void Entregar_email(Hash_LE *server, Mensagem email, int U, string _conteudo, in
     server->Insere(email, M);
 }
 
-void Consultar_email(Hash_LE *server, int U, int M, int E)
+void Consultar_email(Hash_LE *server, Mensagem dados, int U, int M, int E)
 {
-    Mensagem busca;
     Mensagem resposta;
-    busca.SetIdMensagem(E);
-    busca.SetIdDestinatario(U);
+    dados.SetIdMensagem(E);
+    dados.SetIdDestinatario(U);
 
-    resposta = server->Pesquisa(busca, M);
+    resposta = server->Pesquisa(dados, M);
+    cout << resposta.id_mensagem << endl;
 
     if (resposta.id_mensagem == -1)
     {
@@ -30,8 +30,14 @@ void Consultar_email(Hash_LE *server, int U, int M, int E)
     }
     else
     {
-        cout << "CONSULTA " << resposta.GetIdDestinatario() << " " << resposta.GetIdMensagem() << ": " << resposta.GetConteudo() << endl;
+        cout << "CONSULTA " << resposta.GetIdDestinatario() << " " << resposta.GetIdMensagem() << ": " << resposta.conteudo << endl;
     }
 }
 
-void Apagar_email(Hash_LE *server, Mensagem dados, int U, string _conteudo, int M, int E) {}
+void Apagar_email(Hash_LE *server, int U, int M, int E)
+{
+    Mensagem busca;
+    busca.SetIdMensagem(E);
+    busca.SetIdDestinatario(U);
+    server->Remove(busca, M);
+}
