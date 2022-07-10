@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Jul 10 00:38:22 2022
+# Make data base, printed on Sun Jul 10 01:08:34 2022
 
 # Variables
 
@@ -157,9 +157,9 @@ TERM = xterm-256color
 # environment
 WSL_DISTRO_NAME = Ubuntu
 # makefile (from 'Makefile', line 17)
-SAIDA = ./saida/
+SAIDA = ./saidas/
 # variable set hash-table stats:
-# Load=74/1024=7%, Rehash=0, Collisions=17/161=11%
+# Load=74/1024=7%, Rehash=0, Collisions=17/153=11%
 
 # Pattern-specific Variable Values
 
@@ -191,7 +191,7 @@ all: use
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/13=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
 
 obj//main.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp include//Simulador.hpp include//TADs.hpp src/main.cpp
 #  Implicit rule search has not been done.
@@ -209,7 +209,7 @@ obj//main.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp in
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-10 00:38:11.632572868
+#  Last modified 2022-07-10 01:08:25.822582858
 #  File has been updated.
 #  Successfully updated.
 
@@ -274,8 +274,8 @@ bin//simulador: obj//Execucao.o obj//Simulador.o obj//main.o obj//memlog.o obj//
 #  Modification time never checked.
 #  File has not been updated.
 
- 
 use: bin//simulador.out
+ 
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: ''
 #  File does not exist.
@@ -298,12 +298,8 @@ use: bin//simulador.out
 # automatic
 # ? := bin//simulador.out
 # variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=6/21=29%
-#  recipe to execute (from 'Makefile', line 27):
-	$(EXE) -i "./entradas/entrada.txt" -o "./saidas/saida.txt"
-	$(EXE) -i "./entradas/entrada_1.txt" -o "./saidas/saida_1.txt"
-	$(EXE) -i "./entradas/entrada_2.txt" -o "./saidas/saida_2.txt"
-	$(EXE) -i "./entradas/entrada_3.txt" -o "./saidas/saida_3.txt"
+# Load=8/32=25%, Rehash=0, Collisions=2/13=15%
+#  recipe to execute (from 'Makefile', line 31):
 	$(EXE) -i "./entradas/entrada_4.txt" -o "./saidas/saida_4.txt"
 
 clean:
@@ -330,7 +326,7 @@ obj//memlog.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp 
 # Not a target:
 bin//simulador.out:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-10 00:38:15.342572889
+#  Last modified 2022-07-10 01:08:28.902582875
 #  File has been updated.
 #  Successfully updated.
 
@@ -368,6 +364,6 @@ obj//TADs.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp in
 # strcache performance: lookups = 77 / hit rate = 53%
 # hash-table stats:
 # Load=36/8192=0%, Rehash=0, Collisions=1/77=1%
-# Finished Make data base on Sun Jul 10 00:38:22 2022
+# Finished Make data base on Sun Jul 10 01:08:34 2022
 
  

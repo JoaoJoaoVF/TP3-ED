@@ -38,8 +38,9 @@ int Mensagem::GetIdDestinatario()
 void Mensagem::SetConteudo(string _msg_conteudo)
 { // REMOVE O ESPAÇO NO FINAL DA MENSAGEM
     int x = _msg_conteudo.length();
-    cout << _msg_conteudo[x] << endl;
+
     _msg_conteudo.erase(x - 1);
+
     conteudo = _msg_conteudo;
 }
 
@@ -157,14 +158,12 @@ Mensagem ArvoreBinaria::PesquisaRecursivo(TipoNo *no, int id_mensagem)
     else if (id_mensagem > no->dados.GetIdMensagem())
         return PesquisaRecursivo(no->dir, id_mensagem);
     else
-    {
-
         return no->dados;
-    }
 }
 
 void ArvoreBinaria::Remove(int id_mensagem)
 {
+
     return RemoveRecursivo(raiz, id_mensagem);
 }
 
@@ -173,6 +172,7 @@ void ArvoreBinaria::RemoveRecursivo(TipoNo *&no, int id_mensagem)
     TipoNo *aux;
 
     ofstream saida(no->dados.arquivo_saida, ios::app);
+
     if (no == NULL)
     {
         cout << "ERRO: MENSAGEM INEXISTENTE" << endl;
@@ -249,7 +249,7 @@ Mensagem Hash_LE::Pesquisa(Mensagem dados, int M, int Tipo)
 
     if (Tipo == 1)
     {
-        if (texto.id_mensagem == -1)
+        if (texto.GetIdMensagem() == -1 || texto.GetIdDestinatario() != dados.GetIdDestinatario())
         {
 
             saida << "CONSULTA " << dados.GetIdDestinatario() << " " << dados.GetIdMensagem() << ": MENSAGEM INEXISTENTE" << endl;
@@ -282,6 +282,16 @@ void Hash_LE::Insere(Mensagem dados, int M)
 void Hash_LE::Remove(Mensagem dados, int M)
 {
     int pos;
+    Mensagem texto;
+    ofstream saida(dados.arquivo_saida, ios::app);
     pos = Hash(dados.GetIdDestinatario(), M);
-    Tabela[pos].Remove(dados.GetIdMensagem());
+    texto = Tabela[pos].Pesquisa(dados.GetIdMensagem());
+    if (texto.GetIdMensagem() == -1)
+    {
+        cout << "ERRO: MENSAGEM INEXISTENTE" << endl;
+        saida << "ERRO: MENSAGEM INEXISTENTE" << endl;
+    }
+    else
+        Tabela[pos].Remove(dados.GetIdMensagem());
+    saida.close();
 }

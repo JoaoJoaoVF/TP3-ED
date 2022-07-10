@@ -1,9 +1,5 @@
 make --dry-run --keep-going --print-directory
 make: Entering directory '/home/jvf/joao_vitor_2021039654/TP3-ED/joao_vitor_2021039654/simulador'
-./bin//simulador.out -i "./entradas/entrada.txt" -o "./saidas/saida.txt"
-./bin//simulador.out -i "./entradas/entrada_1.txt" -o "./saidas/saida_1.txt"
-./bin//simulador.out -i "./entradas/entrada_2.txt" -o "./saidas/saida_2.txt"
-./bin//simulador.out -i "./entradas/entrada_3.txt" -o "./saidas/saida_3.txt"
 ./bin//simulador.out -i "./entradas/entrada_4.txt" -o "./saidas/saida_4.txt"
 make: Leaving directory '/home/jvf/joao_vitor_2021039654/TP3-ED/joao_vitor_2021039654/simulador'
  
