@@ -1,5 +1,11 @@
-#ifndef EXECUCAO_HPP
-#define EXECUCAO_HPP
+//---------------------------------------------------------------------
+// Arquivo      : Execucao.hpp
+// Conteudo     : Arquivo de cabeçalho das operações realizadas no email
+// Autor        : Joao Vitor Ferreira (ferreirajoao@dcc.ufmg.br)
+//---------------------------------------------------------------------
+
+#ifndef EXECUCAO
+#define EXECUCAO
 
 #include "../include/TADs.hpp"
 #include "../include/Simulador.hpp"

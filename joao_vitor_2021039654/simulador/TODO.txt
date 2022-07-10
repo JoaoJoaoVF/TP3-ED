@@ -1,10 +1,9 @@
 Ver o pq 
-ENTREGA - Parece que funciona bem
-        - Consegue inserir os dados
+ENTREGA - Funciona bem
 
-CONSULTA - Não funciona 
-         - SEMPRE ACHA AS POSICOES
-         - A MENSAGEM ESTA SEMPRE VAZIA
+CONSULTA - Funciona bem 
          
-APAGA - Não funciona
-      - Tem um Segmentation Fault no fim da execução
+APAGA - Funciona bem
+
+- Documentação
+- Analisamem

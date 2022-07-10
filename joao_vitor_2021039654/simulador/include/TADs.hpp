@@ -1,5 +1,11 @@
-#ifndef TADs_HPP
-#define TADs_HPP
+//---------------------------------------------------------------------
+// Arquivo      : TADs.hpp
+// Conteudo     : Arquivo de cabeçalho dos Tipos Abstratos de Dados
+// Autor        : Joao Vitor Ferreira (ferreirajoao@dcc.ufmg.br)
+//---------------------------------------------------------------------
+
+#ifndef TADs
+#define TADs
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -61,9 +67,6 @@ private:
     Mensagem PesquisaRecursivo(TipoNo *p, int id_mensagem);
     void RemoveRecursivo(TipoNo *&p, int id_mensagem);
     void Antecessor(TipoNo *q, TipoNo *&r);
-    void PreOrdem(TipoNo *p);
-    void InOrdem(TipoNo *p);
-    void PosOrdem(TipoNo *p);
     TipoNo *raiz;
 };
 
@@ -71,13 +74,11 @@ class Hash_LE
 {
 public:
     Hash_LE(int M);
-    // Hash_LE(int M);
     Mensagem Pesquisa(Mensagem email, int M, int Tipo);
     void Insere(Mensagem email, int M);
     void Remove(Mensagem email, int M);
 
 private:
-    // static const int M = 50;
     int Hash(int id_mensagem, int M);
     ArvoreBinaria *Tabela;
 };

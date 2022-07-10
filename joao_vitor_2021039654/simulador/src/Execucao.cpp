@@ -5,7 +5,6 @@
 //---------------------------------------------------------------------
 
 #include "../include/Execucao.hpp"
-#include "../include/TADs.hpp"
 
 void Executa(char *arquivo_entrada, char *arquivo_saida)
 {
