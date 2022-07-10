@@ -1,5 +1,7 @@
 #include "../include/TADs.hpp"
 
+using namespace std;
+
 Mensagem::Mensagem()
 {
     id_mensagem = -1; // indica um item vazio
@@ -34,7 +36,10 @@ int Mensagem::GetIdDestinatario()
 }
 
 void Mensagem::SetConteudo(string _msg_conteudo)
-{
+{ // REMOVE O ESPAÇO NO FINAL DA MENSAGEM
+    int x = _msg_conteudo.length();
+    cout << _msg_conteudo[x] << endl;
+    _msg_conteudo.erase(x - 1);
     conteudo = _msg_conteudo;
 }
 
@@ -153,6 +158,7 @@ Mensagem ArvoreBinaria::PesquisaRecursivo(TipoNo *no, int id_mensagem)
         return PesquisaRecursivo(no->dir, id_mensagem);
     else
     {
+
         return no->dados;
     }
 }
@@ -165,9 +171,12 @@ void ArvoreBinaria::Remove(int id_mensagem)
 void ArvoreBinaria::RemoveRecursivo(TipoNo *&no, int id_mensagem)
 {
     TipoNo *aux;
+
+    ofstream saida(no->dados.arquivo_saida, ios::app);
     if (no == NULL)
     {
         cout << "ERRO: MENSAGEM INEXISTENTE" << endl;
+        saida << "ERRO: MENSAGEM INEXISTENTE" << endl;
     }
     if (id_mensagem < no->dados.GetIdMensagem())
         return RemoveRecursivo(no->esq, id_mensagem);
@@ -191,6 +200,8 @@ void ArvoreBinaria::RemoveRecursivo(TipoNo *&no, int id_mensagem)
             Antecessor(no, no->esq);
 
         cout << "OK: MENSAGEM APAGADA" << endl;
+        saida << "OK: MENSAGEM APAGADA" << endl;
+        saida.close();
     }
 }
 
@@ -234,17 +245,23 @@ Mensagem Hash_LE::Pesquisa(Mensagem dados, int M, int Tipo)
     pos = Hash(dados.GetIdDestinatario(), M);
     texto = Tabela[pos].Pesquisa(dados.GetIdMensagem());
 
+    ofstream saida(dados.arquivo_saida, ios::app);
+
     if (Tipo == 1)
     {
         if (texto.id_mensagem == -1)
         {
-            cout << "CONSULTA " << dados.GetIdDestinatario() << " " << dados.GetIdMensagem() << ": MENSAGEM INEXISTENTE " << endl;
+
+            saida << "CONSULTA " << dados.GetIdDestinatario() << " " << dados.GetIdMensagem() << ": MENSAGEM INEXISTENTE" << endl;
+            cout << "CONSULTA " << dados.GetIdDestinatario() << " " << dados.GetIdMensagem() << ": MENSAGEM INEXISTENTE" << endl;
         }
         else
         {
+            saida << "CONSULTA " << texto.GetIdDestinatario() << " " << texto.GetIdMensagem() << ": " << texto.GetConteudo() << endl;
             cout << "CONSULTA " << texto.GetIdDestinatario() << " " << texto.GetIdMensagem() << ": " << texto.GetConteudo() << endl;
         }
     }
+    saida.close();
     return dados;
 }
 
@@ -252,10 +269,14 @@ void Hash_LE::Insere(Mensagem dados, int M)
 {
     Mensagem aux;
     int pos;
+    ofstream saida(dados.arquivo_saida, ios::app);
+
     aux = Pesquisa(dados, M, 0);
     pos = Hash(dados.GetIdDestinatario(), M);
     Tabela[pos].Insere(dados);
+    saida << "OK: MENSAGEM " << dados.GetIdMensagem() << " PARA " << dados.GetIdDestinatario() << " ARMAZENADA EM " << pos << endl;
     cout << "OK: MENSAGEM " << dados.GetIdMensagem() << " PARA " << dados.GetIdDestinatario() << " ARMAZENADA EM " << pos << endl;
+    saida.close();
 }
 
 void Hash_LE::Remove(Mensagem dados, int M)

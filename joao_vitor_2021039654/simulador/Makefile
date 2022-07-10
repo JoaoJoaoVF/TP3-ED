@@ -24,7 +24,11 @@ EXE = $(BIN)/simulador.out
 all: use
 
 use: $(EXE)
+	$(EXE) -i "./entradas/entrada.txt" -o "./saidas/saida.txt"
 	$(EXE) -i "./entradas/entrada_1.txt" -o "./saidas/saida_1.txt"
+	$(EXE) -i "./entradas/entrada_2.txt" -o "./saidas/saida_2.txt"
+	$(EXE) -i "./entradas/entrada_3.txt" -o "./saidas/saida_3.txt"
+	$(EXE) -i "./entradas/entrada_4.txt" -o "./saidas/saida_4.txt"
 
 $(BIN)/simulador: $(OBJS)
 	$(CC) -g -o $(BIN)/simulador $(OBJS) $(LIBS)

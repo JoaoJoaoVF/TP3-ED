@@ -6,10 +6,11 @@
 #include <getopt.h>
 #include <string.h>
 #include <iostream>
-#include <iostream>
 #include <fstream>
+#include <cstring>
 #include "../include/memlog.hpp"
 #include "../include/msgassert.hpp"
+
 using namespace std;
 
 class Mensagem
@@ -29,6 +30,7 @@ public:
     int id_mensagem;
     int id_destinatario;
     string conteudo;
+    string arquivo_saida;
 };
 
 class TipoNo

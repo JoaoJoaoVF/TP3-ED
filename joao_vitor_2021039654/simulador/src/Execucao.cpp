@@ -8,7 +8,7 @@ void Executa(char *arquivo_entrada, char *arquivo_saida)
 
     // Realiza a abertura do Arquivo de Entrada
     FILE *entrada = fopen(arquivo_entrada, "r");
-    FILE *saida = fopen(arquivo_saida, "w");
+    // FILE *saida = fopen(arquivo_saida, "w");
 
     fscanf(entrada, "%d", &M);
 
@@ -18,6 +18,7 @@ void Executa(char *arquivo_entrada, char *arquivo_saida)
 
     while (!feof(entrada))
     {
+        email.arquivo_saida = arquivo_saida;
         fscanf(entrada, "%s", Comando);
 
         if (strcmp(Comando, "ENTREGA") == 0)
@@ -29,6 +30,7 @@ void Executa(char *arquivo_entrada, char *arquivo_saida)
             for (int i = 0; i < N; i++)
             {
                 fscanf(entrada, "%s", aux);
+
                 MSG = MSG + aux + " ";
             }
             Entregar_email(server, email, U, MSG, M, E);
@@ -44,7 +46,7 @@ void Executa(char *arquivo_entrada, char *arquivo_saida)
         {
             fscanf(entrada, "%d %d\n", &U, &E);
 
-            Apagar_email(server, U, M, E);
+            Apagar_email(server, email, U, M, E);
         }
     }
 

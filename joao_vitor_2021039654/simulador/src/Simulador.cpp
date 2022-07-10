@@ -10,21 +10,26 @@ void Entregar_email(Hash_LE *server, Mensagem email, int U, string _conteudo, in
     email.SetIdDestinatario(U);
 
     server->Insere(email, M);
+
+    // cout << email.arquivo_saida << endl;
 }
 
-void Consultar_email(Hash_LE *server, Mensagem dados, int U, int M, int E)
+void Consultar_email(Hash_LE *server, Mensagem email, int U, int M, int E)
 {
     Mensagem resposta;
-    dados.SetIdMensagem(E);
-    dados.SetIdDestinatario(U);
+    email.SetIdMensagem(E);
+    email.SetIdDestinatario(U);
 
-    resposta = server->Pesquisa(dados, M, 1);
+    resposta = server->Pesquisa(email, M, 1);
+
+    // cout << email.arquivo_saida << endl;
 }
 
-void Apagar_email(Hash_LE *server, int U, int M, int E)
+void Apagar_email(Hash_LE *server, Mensagem email, int U, int M, int E)
 {
-    Mensagem busca;
-    busca.SetIdMensagem(E);
-    busca.SetIdDestinatario(U);
-    server->Remove(busca, M);
+    email.SetIdMensagem(E);
+    email.SetIdDestinatario(U);
+    server->Remove(email, M);
+
+    // cout << email.arquivo_saida << endl;
 }
