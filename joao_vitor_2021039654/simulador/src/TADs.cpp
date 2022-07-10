@@ -76,128 +76,135 @@ string Mensagem::GetConteudo()
     return conteudo;
 }
 
-void Mensagem::Imprime()
-{
-    cout << id_mensagem << " " << conteudo << endl;
-}
-
 TipoNo::TipoNo()
 {
-    dados.SetIdMensagem(-1);
-    dados.SetConteudo(" ");
-    dados.SetIdDestinatario(-1);
+    // Descricao: Construtor do Nó.
+    // Entrada: Não possui.
+    // Saida: Nó inicializada.
+
+    email.SetIdMensagem(-1);
+    email.SetConteudo(" ");
+    email.SetIdDestinatario(-1);
     esq = NULL;
     dir = NULL;
 }
 
 ArvoreBinaria::ArvoreBinaria()
 {
+    // Descricao: Construtor da Arvore Binaria.
+    // Entrada: Não possui.
+    // Saida: Arvore Binaria inicializada.
+
     raiz = NULL;
 }
 
 ArvoreBinaria::~ArvoreBinaria()
 {
+    // Descricao: Destrutor da Arvore Binaria.
+    // Entrada: Não possui.
+    // Saida: Arvore Binaria limpa.
+
     Limpa();
 }
 
-void ArvoreBinaria::Insere(Mensagem dados)
+void ArvoreBinaria::Insere(Mensagem email)
 {
-    InsereRecursivo(raiz, dados);
+    // Descricao: Insere os email na Arvore Binaria.
+    // Entrada: Um TAD Mensagem.
+    // Saida: Dado inserido na Arvore Binaria.
+
+    InsereRecursivo(raiz, email);
 }
 
-void ArvoreBinaria::InsereRecursivo(TipoNo *&p, Mensagem dados)
+void ArvoreBinaria::InsereRecursivo(TipoNo *&p, Mensagem email)
 {
+    // Descricao: Função que realiza o percorrimento dos Nós da Arvore para encontrar o local onde o email sera inserido.
+    // Entrada: Um Nó e um TAD Mensagem.
+    // Saida: Não possui.
+
     if (p == NULL)
     {
         p = new TipoNo();
-        p->dados = dados;
+        p->email = email;
     }
     else
     {
-        if (dados.GetIdMensagem() < p->dados.GetIdMensagem())
-            InsereRecursivo(p->esq, dados);
+        if (email.GetIdMensagem() < p->email.GetIdMensagem())
+            InsereRecursivo(p->esq, email);
         else
-            InsereRecursivo(p->dir, dados);
-    }
-}
-
-void ArvoreBinaria::PreOrdem(TipoNo *p)
-{
-    if (p != NULL)
-    {
-        p->dados.Imprime();
-        PreOrdem(p->esq);
-        PreOrdem(p->dir);
-    }
-}
-
-void ArvoreBinaria::InOrdem(TipoNo *p)
-{
-    if (p != NULL)
-    {
-        InOrdem(p->esq);
-        p->dados.Imprime();
-        InOrdem(p->dir);
-    }
-}
-
-void ArvoreBinaria::PosOrdem(TipoNo *p)
-{
-    if (p != NULL)
-    {
-        PosOrdem(p->esq);
-        PosOrdem(p->dir);
-        p->dados.Imprime();
+            InsereRecursivo(p->dir, email);
     }
 }
 
 void ArvoreBinaria::Limpa()
 {
+    // Descricao: Apaga os email na Arvore Binaria.
+    // Entrada: Não possui.
+    // Saida: Arvore Binaria vazia.
+
     ApagaRecursivo(raiz);
     raiz = NULL;
 }
 
 Mensagem ArvoreBinaria::Pesquisa(int id_mensagem)
 {
+    // Descricao: Pesquisa um email na Arvore Binaria.
+    // Entrada: Um TAD Mensagem.
+    // Saida: Um email.
+
     return PesquisaRecursivo(raiz, id_mensagem);
 }
 
 Mensagem ArvoreBinaria::PesquisaRecursivo(TipoNo *no, int id_mensagem)
 {
+    // Descricao: Função que realiza o percorrimento dos Nós da Arvore para encontrar o
+    // local onde o email esta e se ele esta presente na Arvore.
+    // Entrada: Um Nó e um TAD Mensagem.
+    // Saida: Um email.
+
     Mensagem aux;
     if (no == NULL)
     {
         aux.SetIdMensagem(-1); // Flag para item não presente
         return aux;
     }
-    if (id_mensagem < no->dados.GetIdMensagem())
+    if (id_mensagem < no->email.GetIdMensagem())
         return PesquisaRecursivo(no->esq, id_mensagem);
-    else if (id_mensagem > no->dados.GetIdMensagem())
+    else if (id_mensagem > no->email.GetIdMensagem())
         return PesquisaRecursivo(no->dir, id_mensagem);
     else
-        return no->dados;
+        return no->email;
 }
 
 void ArvoreBinaria::Remove(int id_mensagem)
 {
+    // Descricao: Remove um email na Arvore Binaria.
+    // Entrada: Um TAD Mensagem.
+    // Saida: Não possui.
 
     return RemoveRecursivo(raiz, id_mensagem);
 }
 
 void ArvoreBinaria::RemoveRecursivo(TipoNo *&no, int id_mensagem)
 {
+    // Descricao: Função que realiza o percorrimento dos Nós da Arvore para encontrar o
+    // local onde o email esta e se ele esta presente na Arvore o remove, e realiza a
+    // escrita no arquivo de saida do sucesso ou não da operação.
+    // Entrada: Um Nó e um TADs Mensagem.
+    // Saida: Não possui.
+
     TipoNo *aux;
 
-    ofstream saida(no->dados.arquivo_saida, ios::app);
+    ofstream saida(no->email.arquivo_saida, ios::app);
 
     if (no == NULL)
     {
         cout << "ERRO: MENSAGEM INEXISTENTE" << endl;
         saida << "ERRO: MENSAGEM INEXISTENTE" << endl;
     }
-    if (id_mensagem < no->dados.GetIdMensagem())
+    if (id_mensagem < no->email.GetIdMensagem())
         return RemoveRecursivo(no->esq, id_mensagem);
-    else if (id_mensagem > no->dados.GetIdMensagem())
+    else if (id_mensagem > no->email.GetIdMensagem())
         return RemoveRecursivo(no->dir, id_mensagem);
     else
     {
@@ -224,6 +231,10 @@ void ArvoreBinaria::RemoveRecursivo(TipoNo *&no, int id_mensagem)
 
 void ArvoreBinaria::ApagaRecursivo(TipoNo *p)
 {
+    // Descricao: Apaga todos os dados da Arvore.
+    // Entrada: Um Nó.
+    // Saida: Não possui.
+
     if (p != NULL)
     {
         ApagaRecursivo(p->esq);
@@ -234,12 +245,16 @@ void ArvoreBinaria::ApagaRecursivo(TipoNo *p)
 
 void ArvoreBinaria::Antecessor(TipoNo *q, TipoNo *&r)
 {
+    // Descricao: Encontra um Pai da folha e realiza a troca.
+    // Entrada: Dois Nós.
+    // Saida: Não possui.
+
     if (r->dir != NULL)
     {
         Antecessor(q, r->dir);
         return;
     }
-    q->dados = r->dados;
+    q->email = r->email;
     q = r;
     r = r->esq;
     free(q);
@@ -247,30 +262,44 @@ void ArvoreBinaria::Antecessor(TipoNo *q, TipoNo *&r)
 
 Hash_LE::Hash_LE(int M)
 {
+    // Descricao: Construtor da Tabela Hash.
+    // Entrada: Não possui.
+    // Saida: Tabela Hash inicializada.
+
     this->Tabela = new ArvoreBinaria[M];
 }
 
 int Hash_LE::Hash(int id_mensagem, int M)
 {
+    // Descricao: Calcula o valor do mod para determinar a posição na tabela.
+    // Entrada: O id da mensagem e o tamanho da Tabela
+    // Saida: A posição do email Tabela Hash.
+
     return id_mensagem % M;
 }
 
-Mensagem Hash_LE::Pesquisa(Mensagem dados, int M, int Tipo)
+Mensagem Hash_LE::Pesquisa(Mensagem email, int M, int Tipo)
 {
+    // Descricao: Realiza a pesquisa de dado Email na Tabela, e
+    // realiza a escrita no arquivo saida do resultado da pesquisa.
+    // Entrada: Um TAD email, o tamanho da tabela, um identificador
+    // se sera realizada a escrita no arquivo de saida
+    // Saida: Não possui.
+
     int pos;
     Mensagem texto;
-    pos = Hash(dados.GetIdDestinatario(), M);
-    texto = Tabela[pos].Pesquisa(dados.GetIdMensagem());
+    pos = Hash(email.GetIdDestinatario(), M);
+    texto = Tabela[pos].Pesquisa(email.GetIdMensagem());
 
-    ofstream saida(dados.arquivo_saida, ios::app);
+    ofstream saida(email.arquivo_saida, ios::app);
 
     if (Tipo == 1)
     {
-        if (texto.GetIdMensagem() == -1 || texto.GetIdDestinatario() != dados.GetIdDestinatario())
+        if (texto.GetIdMensagem() == -1 || texto.GetIdDestinatario() != email.GetIdDestinatario())
         {
 
-            saida << "CONSULTA " << dados.GetIdDestinatario() << " " << dados.GetIdMensagem() << ": MENSAGEM INEXISTENTE" << endl;
-            cout << "CONSULTA " << dados.GetIdDestinatario() << " " << dados.GetIdMensagem() << ": MENSAGEM INEXISTENTE" << endl;
+            saida << "CONSULTA " << email.GetIdDestinatario() << " " << email.GetIdMensagem() << ": MENSAGEM INEXISTENTE" << endl;
+            cout << "CONSULTA " << email.GetIdDestinatario() << " " << email.GetIdMensagem() << ": MENSAGEM INEXISTENTE" << endl;
         }
         else
         {
@@ -279,36 +308,48 @@ Mensagem Hash_LE::Pesquisa(Mensagem dados, int M, int Tipo)
         }
     }
     saida.close();
-    return dados;
+    return email;
 }
 
-void Hash_LE::Insere(Mensagem dados, int M)
+void Hash_LE::Insere(Mensagem email, int M)
 {
+    // Descricao: Realiza a inserção de dado Email na Tabela, e
+    // realiza a escrita no arquivo saida do resultado da inserção.
+    // Entrada: Um TAD email, o tamanho da tabela.
+    // Saida: Não possui.
+
     Mensagem aux;
     int pos;
-    ofstream saida(dados.arquivo_saida, ios::app);
+    ofstream saida(email.arquivo_saida, ios::app);
 
-    aux = Pesquisa(dados, M, 0);
-    pos = Hash(dados.GetIdDestinatario(), M);
-    Tabela[pos].Insere(dados);
-    saida << "OK: MENSAGEM " << dados.GetIdMensagem() << " PARA " << dados.GetIdDestinatario() << " ARMAZENADA EM " << pos << endl;
-    cout << "OK: MENSAGEM " << dados.GetIdMensagem() << " PARA " << dados.GetIdDestinatario() << " ARMAZENADA EM " << pos << endl;
+    aux = Pesquisa(email, M, 0);
+    pos = Hash(email.GetIdDestinatario(), M);
+    Tabela[pos].Insere(email);
+    saida << "OK: MENSAGEM " << email.GetIdMensagem() << " PARA " << email.GetIdDestinatario() << " ARMAZENADA EM " << pos << endl;
+    cout << "OK: MENSAGEM " << email.GetIdMensagem() << " PARA " << email.GetIdDestinatario() << " ARMAZENADA EM " << pos << endl;
     saida.close();
 }
 
-void Hash_LE::Remove(Mensagem dados, int M)
+void Hash_LE::Remove(Mensagem email, int M)
 {
+    // Descricao: Realiza a remoção de dado Email na Tabela, inicialemente
+    // realiza a procura desse elemento na Tabela e caso ele não esteja presente
+    // realiza o apontamento disso no arquivo de saida e caso ele esteja presente
+    // realiza a remoção dele.
+    // Entrada: Um TAD email, o tamanho da tabela.
+    // Saida: Não possui.
+
     int pos;
     Mensagem texto;
-    ofstream saida(dados.arquivo_saida, ios::app);
-    pos = Hash(dados.GetIdDestinatario(), M);
-    texto = Tabela[pos].Pesquisa(dados.GetIdMensagem());
+    ofstream saida(email.arquivo_saida, ios::app);
+    pos = Hash(email.GetIdDestinatario(), M);
+    texto = Tabela[pos].Pesquisa(email.GetIdMensagem());
     if (texto.GetIdMensagem() == -1)
     {
         cout << "ERRO: MENSAGEM INEXISTENTE" << endl;
         saida << "ERRO: MENSAGEM INEXISTENTE" << endl;
     }
     else
-        Tabela[pos].Remove(dados.GetIdMensagem());
+        Tabela[pos].Remove(email.GetIdMensagem());
     saida.close();
 }

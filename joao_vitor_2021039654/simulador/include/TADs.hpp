@@ -38,7 +38,7 @@ public:
     TipoNo();
 
 private:
-    Mensagem dados;
+    Mensagem email;
     TipoNo *esq;
     TipoNo *dir;
     friend class ArvoreBinaria;
@@ -49,14 +49,14 @@ class ArvoreBinaria
 public:
     ArvoreBinaria();
     ~ArvoreBinaria();
-    void Insere(Mensagem dados);
+    void Insere(Mensagem email);
     void Caminha(int tipo);
     void Limpa();
     Mensagem Pesquisa(int id_mensagem);
     void Remove(int id_mensagem);
 
 private:
-    void InsereRecursivo(TipoNo *&p, Mensagem dados);
+    void InsereRecursivo(TipoNo *&p, Mensagem email);
     void ApagaRecursivo(TipoNo *p);
     Mensagem PesquisaRecursivo(TipoNo *p, int id_mensagem);
     void RemoveRecursivo(TipoNo *&p, int id_mensagem);
@@ -72,9 +72,9 @@ class Hash_LE
 public:
     Hash_LE(int M);
     // Hash_LE(int M);
-    Mensagem Pesquisa(Mensagem dados, int M, int Tipo);
-    void Insere(Mensagem dados, int M);
-    void Remove(Mensagem dados, int M);
+    Mensagem Pesquisa(Mensagem email, int M, int Tipo);
+    void Insere(Mensagem email, int M);
+    void Remove(Mensagem email, int M);
 
 private:
     // static const int M = 50;
