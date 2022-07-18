@@ -1,9 +1,0 @@
-Ver o pq 
-ENTREGA - Funciona bem
-
-CONSULTA - Funciona bem 
-         
-APAGA - Funciona bem
-
-- Documentação - Em falta a comparcação dos metodos de pesquisa e ordeaçao
-- Analisamem - Feito
