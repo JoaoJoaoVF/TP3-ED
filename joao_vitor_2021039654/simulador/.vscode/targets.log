@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'bin//simulador.out', needed by 'use'.  Stop.
-
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'bin//simulador.out', needed by 'use'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Jul 10 13:18:56 2022
+# Make data base, printed on Mon Jul 18 14:56:45 2022
 
 # Variables
 
@@ -39,9 +37,9 @@ SHELL = /bin/sh
 # makefile (from 'Makefile', line 15)
 BIN = ./bin/
 # environment
-VSCODE_NLS_CONFIG = {"locale":"pt-br","availableLanguages":{"*":"pt-br"},"_languagePackId":"586ada59ea240d9b175b3ea817e73e56.pt-br","_translationsConfigFile":"/home/jvf/.vscode-server/data/clp/586ada59ea240d9b175b3ea817e73e56.pt-br/tcf.json","_cacheRoot":"/home/jvf/.vscode-server/data/clp/586ada59ea240d9b175b3ea817e73e56.pt-br","_resolvedLanguagePackCoreLocation":"/home/jvf/.vscode-server/data/clp/586ada59ea240d9b175b3ea817e73e56.pt-br/92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9","_corruptedFile":"/home/jvf/.vscode-server/data/clp/586ada59ea240d9b175b3ea817e73e56.pt-br/corrupted.info","_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"pt-br","availableLanguages":{"*":"pt-br"},"_languagePackId":"dc7ba51c4efcfec965eaa07de065afd6.pt-br","_translationsConfigFile":"/home/jvf/.vscode-server/data/clp/dc7ba51c4efcfec965eaa07de065afd6.pt-br/tcf.json","_cacheRoot":"/home/jvf/.vscode-server/data/clp/dc7ba51c4efcfec965eaa07de065afd6.pt-br","_resolvedLanguagePackCoreLocation":"/home/jvf/.vscode-server/data/clp/dc7ba51c4efcfec965eaa07de065afd6.pt-br/b06ae3b2d2dbfe28bca3134cc6be65935cdfea6a","_corruptedFile":"/home/jvf/.vscode-server/data/clp/dc7ba51c4efcfec965eaa07de065afd6.pt-br/corrupted.info","_languagePackSupport":true}
 # environment
-_ = /home/jvf/.vscode-server/bin/92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9/node
+_ = /home/jvf/.vscode-server/bin/b06ae3b2d2dbfe28bca3134cc6be65935cdfea6a/node
 # makefile (from 'Makefile', line 19)
 CFLAGS = -pg -Wall -c -I$(INC) -std=c++11
 # makefile (from 'Makefile', line 18)
@@ -61,11 +59,11 @@ VSCODE_CWD = /mnt/c/Users/João Vitor Ferreira/AppData/Local/Programs/Microsoft 
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /home/jvf/.vscode-server/bin/92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/MinGW/bin:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/PostgreSQL/14/bin:/mnt/c/Program Files/PostgreSQL/14/lib:/mnt/c/Users/João Vitor Ferreira/AppData/Local/Programs/Python/Python310/Scripts/:/mnt/c/Users/João Vitor Ferreira/AppData/Local/Programs/Python/Python310/:/mnt/c/Users/João Vitor Ferreira/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/João Vitor Ferreira/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/João Vitor Ferreira/AppData/Local/GitHubDesktop/bin:/snap/bin
+PATH = /home/jvf/.vscode-server/bin/b06ae3b2d2dbfe28bca3134cc6be65935cdfea6a/bin/remote-cli:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/MinGW/bin:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/PostgreSQL/14/bin:/mnt/c/Program Files/PostgreSQL/14/lib:/mnt/c/Users/João Vitor Ferreira/AppData/Local/Programs/Python/Python310/Scripts/:/mnt/c/Users/João Vitor Ferreira/AppData/Local/Programs/Python/Python310/:/mnt/c/Users/João Vitor Ferreira/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/João Vitor Ferreira/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/João Vitor Ferreira/AppData/Local/GitHubDesktop/bin:/snap/bin
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-70561d2d-cbf1-477f-af85-73c4639fa9e7.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-97b7680e-a92e-48d1-ad72-064f87375cd8.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -73,12 +71,11 @@ LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:
 # automatic
 %F = $(notdir $%)
 # environment
- 
 PWD = /home/jvf/joao_vitor_2021039654/TP3-ED/joao_vitor_2021039654/simulador
 # default
 .LOADED := 
 # environment
-WSL_INTEROP = /run/WSL/78_interop
+WSL_INTEROP = /run/WSL/37_interop
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -139,7 +136,6 @@ VSCODE_HANDLES_SIGPIPE = true
 MAKEFILES := 
 # automatic
 <F = $(notdir $<)
- 
 # environment
 LC_ALL = C
 # environment
@@ -204,7 +200,7 @@ obj//main.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp in
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-10 13:18:47.639742171
+#  Last modified 2022-07-18 14:55:27.41997589
 #  File has been updated.
 #  Successfully updated.
 
@@ -273,14 +269,14 @@ use: bin//simulador.out
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 26):
-	$(EXE) -i "./entradas/entrada.txt" -o "./saidas/saida.txt"
+#  recipe to execute (from 'Makefile', line 27):
 	$(EXE) -i "./entradas/entrada_1.txt" -o "./saidas/saida_1.txt"
 	$(EXE) -i "./entradas/entrada_2.txt" -o "./saidas/saida_2.txt"
 	$(EXE) -i "./entradas/entrada_3.txt" -o "./saidas/saida_3.txt"
- 
 	$(EXE) -i "./entradas/entrada_4.txt" -o "./saidas/saida_4.txt"
-	$(EXE) -i "./entradas/entrada_5.txt" -o "./saidas/saida_5.txt"
+
+ 
+make: *** No rule to make target 'bin//simulador.out', needed by 'use'.  Stop.
 
 clean:
 #  Implicit rule search has not been done.
@@ -343,6 +339,6 @@ obj//TADs.o: include//memlog.hpp include//msgassert.hpp include//Execucao.hpp in
 # strcache performance: lookups = 76 / hit rate = 52%
 # hash-table stats:
 # Load=36/8192=0%, Rehash=0, Collisions=1/76=1%
-# Finished Make data base on Sun Jul 10 13:18:56 2022
+# Finished Make data base on Mon Jul 18 14:56:45 2022
 
  

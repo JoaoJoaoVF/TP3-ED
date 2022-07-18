@@ -276,12 +276,12 @@ Hash_AB::Hash_AB(int M)
 int Hash_AB::Hash(Mensagem email, int M)
 {
     // Descricao: Calcula o valor do mod para determinar a posição na tabela.
-    // Entrada: O id da mensagem e o tamanho da Tabela
+    // Entrada: O id do destinatario e o tamanho da Tabela
     // Saida: A posição do email Tabela Hash.
 
-    leMemLog((long int)email.GetIdMensagem(), (long int)sizeof(int), email.indice_analisamem);
+    leMemLog((long int)email.GetIdDestinatario(), (long int)sizeof(int), email.indice_analisamem);
 
-    return email.GetIdMensagem() % M;
+    return email.GetIdDestinatario() % M;
 }
 
 Mensagem Hash_AB::Pesquisa(Mensagem email, int M, int Tipo)

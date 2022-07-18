@@ -5,5 +5,5 @@ CONSULTA - Funciona bem
          
 APAGA - Funciona bem
 
-- Documentação
-- Analisamem
+- Documentação - Em falta a comparcação dos metodos de pesquisa e ordeaçao
+- Analisamem - Feito

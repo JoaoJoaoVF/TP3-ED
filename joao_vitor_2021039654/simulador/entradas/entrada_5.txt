@@ -57,3 +57,70 @@ APAGA 3 115
 APAGA 5 107
 APAGA 1 117
 APAGA 2 117
+ENTREGA 55 824 3 Ola como vai?
+ENTREGA 54 357 4 Bem mal e tu?
+CONSULTA 5 824
+CONSULTA 54 357
+10
+ENTREGA 57 424 6 Bom dia, meu amigo! Tudo bom?
+ENTREGA 64 104 8 Boa tarde, minha amiga! Vou bem e você?
+ENTREGA 54 102425 18 Também! Não estou encontrando meu casaco, será que o deixei na sua casa no fim de semana passado?
+ENTREGA 601 106 8 É um casaco longo e vermelho com bolsos?
+ENTREGA 55 107 3 Sim, este mesmo.
+ENTREGA 624 108 6 Está aqui, vou guardá-lo para você.
+ENTREGA 554 109 8 Obrigada! Vou buscá-lo no próximo sábado. Até lá!
+ENTREGA 675 1170 1 Até!
+CONSULTA 55 1073
+CONSULTA 6 104
+CONSULTA 54 102425
+APAGA 54 102425
+CONSULTA 54 102425
+CONSULTA 6 475
+ENTREGA 3 757 4 Olá Professor, tudo bem?
+ENTREGA 4 272 8 Boa noite! Tudo bem. Como posso te ajudar?
+ENTREGA 3 113 12 Gostaria de entender melhor a nota do minha segunda prova, por favor.
+ENTREGA 4 114 14 Certo, passe na minha sala na quinta-feira às 9 horas que vamos discutir juntos.
+ENTREGA 3 272 1 Obrigado!
+CONSULTA 4 114
+CONSULTA 4 272
+CONSULTA 3 115
+ENTREGA 1 116 14 Boa tarde José! Amanhã preciso que você busque uma encomenda na filial da Pampulha.
+ENTREGA 2 117 9 Boa tarde Antônio! Certo, qual o endereço da loja?
+ENTREGA 1 118 10 Avenida Antônio Carlos, 1000. Chegar lá e procurar por Flávio.
+ENTREGA 2 119 5 Ok, estarei lá às 8h.
+ENTREGA 1 120 1 Obrigado.
+CONSULTA 1 116
+CONSULTA 1 117
+CONSULTA 2 117
+ENTREGA 2415 244 10 Temos um presente para você! Clique aqui para saber mais.
+ENTREGA 16 122 10 Aqui está a fatura digital do seu cartão de crédito.
+ENTREGA 4 54 6 Nova mensagem no fórum do Moodle.
+CONSULTA 5 121
+CONSULTA 5 122
+CONSULTA 4 123
+APAGA 5 121
+CONSULTA 5 121
+CONSULTA 5 122
+CONSULTA 4 123
+APAGA 5 122
+CONSULTA 5 121
+CONSULTA 5 122
+CONSULTA 4 123
+APAGA 5 123
+CONSULTA 5 121
+CONSULTA 5 122
+CONSULTA 54 123
+APAGA 5 121
+APAGA 5 544
+APAGA 4 123
+APAGA 5 877
+APAGA 6 104
+APAGA 5 383
+APAGA 3 115
+APAGA 5 868
+APAGA 1 117
+APAGA 2 78
+ENTREGA 5 824 3 Ola como vai?
+ENTREGA 54 024 4 Bem mal e tu?
+CONSULTA 5 824
+CONSULTA 54 357
